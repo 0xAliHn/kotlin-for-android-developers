@@ -94,7 +94,7 @@ If (artist != Null) {
 Artist!!.Print ()
 
 // use the Elvis operator to give a substitute value in the case of null
-Val name = artist?.name?: "Empty"
+Val name = artist?.name?: "null"
 ```
 
 ## extended method
