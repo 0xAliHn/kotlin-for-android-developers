@@ -5,115 +5,115 @@ Not in-depth Kotlin language (we will learn in the next chapter), there are some
 ## easy to show
 
 With Kotlin, it is easier to avoid the template code because most of the typical cases are implemented in the default override in the language. For example, in Java, if we want a typical data class, we need to write (at least generate) the code:
-`` `Java
-Public class Artist {
-    Private long id;
-    Private String name
-    Private String url;
-    Private String mbid;
+```java
+public class Artist {
+    private long id;
+    private String name;
+    private String url;
+    private String mbid;
 
-    Public long getId () {
-        Return id;
-    }
+    public long getId() {
+        return id;
+    }
 
 
-    Public void setId (long id) {
-        This.id = id;
-    }
+    public void setId(long id) {
+        this.id = id;
+    }
 
-    Public String getName () {
-        Return name;
-    }
+    public String getName() {
+        return name;
+    }
 
-    Public void setName (String name) {
-        This.name = name;
-    }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    Public String getUrl () {
-        Return url
-    }
+    public String getUrl() {
+        return url;
+    }
 
-    Public void setUrl (String url) {
-        This.url = url;
-    }
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-    Public String getMbid () {
-        Return mbid;
-    }
+    public String getMbid() {
+        return mbid;
+    }
 
-    Public void setMbid (String mbid) {
-        This.mbid = mbid;
-    }
+    public void setMbid(String mbid) {
+        this.mbid = mbid;
+    }
 
-    @Override public String toString () {
-        Return "Artist {" +
-          "Id =" + id +
-          ", Name = '" + name +' \ '' +
-          ", Url = '" + url +' \ '' +
-          ", Mbid = '" + mbid +' \ '' +
-          '}';
-    }
+    @Override public String toString() {
+        return "Artist{" +
+          "id=" + id +
+          ", name='" + name + '\'' +
+          ", url='" + url + '\'' +
+          ", mbid='" + mbid + '\'' +
+          '}';
+    }
 }
-`` ``
+```
 
 Using Kotlin, we only need to pass the data class:
-`` `Kotlin
-Data class Artist (
-    Var id: Long,
-    Var name: String,
-    Var url: String,
-    Var mbid: String)
-`` ``
+```kotlin
+data class Artist(
+    var id: Long,
+    var name: String,
+    var url: String,
+    var mbid: String)
+```
 
 This data class, it will automatically generate all the attributes and their accessors, as well as some useful methods, such as `toString ()`
 
-## empty safe
+## SAFE null
 
-When we use Java development, our code is mostly defensive. If we do not want to encounter `NullPointerException`, we need to keep using it to determine if it is null. Kotlin, like many modern languages, is empty because we need to explicitly specify whether an object can be empty by a `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` `` ``
+When we use Java development, our code is mostly defensive. If we do not want to encounter `NullPointerException`, we need to keep using it to determine if it is null. Kotlin, as many modern languages, null safe, because we need to call the operator via a secure (written as `?`) To explicitly specify whether an object can be null
 
 We can write like this:
-`` `Kotlin
-// can not be compiled here. Artist can not be null
-Var notNullArtist: Artist = null
+```kotlin
+// 这里不能通过编译. Artist 不能是null
+var notNullArtist: Artist = null
 
-// Artist can be null
-Var artist: Artist? = Null
+// Artist 可以是 null
+var artist: Artist? = null
 
-// can not compile, artist may be null, we need to deal with
-Artist.print ()
+// 无法编译, artist可能是null，我们需要进行处理
+artist.print()
 
-// print as soon as artist! = Null
-Artist? .print ()
+// 只要在artist != null时才会打印
+artist?.print()
 
-// Smart conversion. If we had an empty check before, you would not need to use the secure call operator call
-If (artist! = Null) {
-  Artist.print ()
+// 智能转换. 如果我们在之前进行了空检查，则不需要使用安全调用操作符调用
+if (artist != null) {
+  artist.print()
 }
 
-// it is only possible to make sure that the artist is not null, otherwise it will throw an exception
-Artist !!. Print ()
+// 只有在确保artist不是null的情况下才能这么调用，否则它会抛出异常
+artist!!.print()
 
-// use the Elvis operator to give a substitute value in the case of null
-Val name = artist? .name?: "Empty"
-`` ``
+// 使用Elvis操作符来给定一个在是null的情况下的替代值
+val name = artist?.name ?: "empty"
+```
 
 ## extended method
 
 We can add functions to any class. It is more readable than the typical tool classes in our project. For example, we can add a copy of the show toast function:
-`` `Kotlin
+```Kotlin
 Fun Fragment.toast (message: CharSequence, duration: Int = Toast.LENGTH_SHORT) {
     Toast.makeText (getActivity (), message, duration) .show ()
 }
-`` ``
+```
 We can do it now:
-`` `Kotlin
+```Kotlin
 Fragment.toast ("Hello world!")
-`` ``
+```
 
 ## Function support (Lambdas)
 
 Every time we declare a click on the triggered event, you can just define what we need to do, rather than having to implement an inner class? We really can do that, this (or other more of the events we are interested in) we need to thank lambda:
-`` `Kotlin
+```Kotlin
 View.setOnClickListener {toast ("Hello world!")}
-`` ``
+```
 Here's just picking up a small part of Kotlin that can simplify our code. Now that you already know some of the interesting features of this language, you can consider whether it is right for you. If you choose to continue, we will start our practice trip in the next chapter.
