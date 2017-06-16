@@ -1,12 +1,12 @@
-# 关于作者
+# About the author
 
-Antonio Leiva是一个Android工程师，他专注于研究新的潜在的Android开发可能性，然后写作说明。他维护一个关于很多不同Android开发话题的博客[antonioleiva.com]。
+Antonio Leiva is an Android engineer who focuses on researching new potential Android development possibilities and then writing notes. He maintains a blog about many different Android development topics [antonioleiva.com].
 
-Antonio一开始是CRM技术顾问，但是一段时间之后，他寻找着新的激情，他发现了Android世界。在优秀的平台上获得了相关经验，之后他加入了一个西班牙重要的手机公司带领多个项目作为新的冒险。
+Antonio started with a CRM technical consultant, but after a while he was looking for new passion, and he found the Android world. In the excellent platform to get the relevant experience, then he joined a major Spanish mobile phone company to lead a number of projects as a new adventure.
 
-现在，他在[Plex]担任Android工程师，并且在Android的设计和UX方面也担任重要的角色。
+Now he is an Android engineer at [Plex] and plays an important role in Android design and UX.
 
-你可以在Twitter上关注他[@lime_cl]。
+You can follow him on Twitter [@lime_cl].
 
 [antonioleiva.com]: http://antonioleiva.com/
 [Plex]: http://plex.tv/
