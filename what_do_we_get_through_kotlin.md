@@ -72,29 +72,29 @@ This data class, it will automatically generate all the attributes and their acc
 When we use Java development, our code is mostly defensive. If we do not want to encounter `NullPointerException`, we need to keep using it to determine if it is null. Kotlin, as many modern languages, null safe, because we need to call the operator via a secure (written as `?`) To explicitly specify whether an object can be null
 
 We can write like this:
-```kotlin
-// 这里不能通过编译. Artist 不能是null
-var notNullArtist: Artist = null
+```Kotlin
+// can not be compiled here. Artist can not be null
+Var notNullArtist: Artist = null
 
-// Artist 可以是 null
-var artist: Artist? = null
+// Artist can be null
+Var artist: Artist ?= Null
 
-// 无法编译, artist可能是null，我们需要进行处理
-artist.print()
+// can not compile, artist may be null, we need to deal with
+Artist.print ()
 
-// 只要在artist != null时才会打印
-artist?.print()
+// print as soon as artist != Null
+Artist?.print ()
 
-// 智能转换. 如果我们在之前进行了空检查，则不需要使用安全调用操作符调用
-if (artist != null) {
-  artist.print()
+// Smart conversion. If we had an empty check before, you would not need to use the secure call operator call
+If (artist != Null) {
+   Artist.print ()
 }
 
-// 只有在确保artist不是null的情况下才能这么调用，否则它会抛出异常
-artist!!.print()
+// it is only possible to make sure that the artist is not null, otherwise it will throw an exception
+Artist!!.Print ()
 
-// 使用Elvis操作符来给定一个在是null的情况下的替代值
-val name = artist?.name ?: "empty"
+// use the Elvis operator to give a substitute value in the case of null
+Val name = artist?.name?: "Empty"
 ```
 
 ## extended method
@@ -114,6 +114,6 @@ Fragment.toast ("Hello world!")
 
 Every time we declare a click on the triggered event, you can just define what we need to do, rather than having to implement an inner class? We really can do that, this (or other more of the events we are interested in) we need to thank lambda:
 ```Kotlin
-View.setOnClickListener {toast ("Hello world!")}
+View.setOnClickListener{toast ("Hello world!")}
 ```
 Here's just picking up a small part of Kotlin that can simplify our code. Now that you already know some of the interesting features of this language, you can consider whether it is right for you. If you choose to continue, we will start our practice trip in the next chapter.
