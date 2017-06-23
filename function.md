@@ -7,7 +7,7 @@ fun onCreate(savedInstanceState: Bundle?) {
 }
 ```
 
-If you do not specify its return value, it will return `Unit`, similar to` void` in Java, but `Unit` is a real object. You can of course also specify any other return type:
+If you do not specify its return value, it will return `Unit`, similar to `void` in Java, but `Unit` is a real object. You can of course also specify any other return type:
 
 ```kotlin
 fun add(x: Int, y: Int) : Int {
