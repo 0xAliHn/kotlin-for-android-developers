@@ -1,10 +1,10 @@
-# 怎么去创建一个自定义的委托
+# How to create a custom delegate
 
-先来说说我们要实现什么，举个例子，我们创建一个`notNull`的委托，它只能被赋值一次，如果第二次赋值，它就会抛异常。
+Let's say what we want to achieve, for example, we create a `notNull` delegate, it can only be assigned once, if the second assignment, it will throw exception.
 
-Kotlin库提供了几个接口，我们自己的委托必须要实现：`ReadOnlyProperty`和`ReadWriteProperty`。具体取决于我们被委托的对象是`val`还是`var`。
+The Kotlin library provides several interfaces, and our own delegates must implement: `ReadOnlyProperty` and `ReadWriteProperty` . Depending on whether the object we are entrusted is `val` or `var`.
 
-我们要做的第一件事就是创建一个类然后继承`ReadWriteProperty`：
+The first thing we have to do is create a class and then inherit `ReadWriteProperty`:
 
 ```kotlin
 private class NotNullSingleValueVar<T>() : ReadWriteProperty<Any?, T> {
@@ -18,10 +18,10 @@ private class NotNullSingleValueVar<T>() : ReadWriteProperty<Any?, T> {
 }
 ```
 
-这个委托可以作用在任何非null的类型。它接收任何类型的引用，然后像getter和setter那样使用T。现在我们需要去实现这些函数。
+This delegate can be applied to any non-null type. It receives any type of reference, and then uses the same as getter and setter. Now we need to implement these functions.
 
-- Getter函数 如果已经被初始化，则会返回一个值，否则会抛异常。
-- Setter函数 如果仍然是null，则赋值，否则会抛异常。
+- If the Getter function has been initialized, it will return a value, otherwise it will throw an exception.
+- Setter function if it is still null, then assignment, otherwise it will throw an exception.
 
 ```kotlin
 private class NotNullSingleValueVar<T>() : ReadWriteProperty<Any?, T> {
@@ -38,7 +38,7 @@ private class NotNullSingleValueVar<T>() : ReadWriteProperty<Any?, T> {
 }
 ```
 
-现在你可以创建一个对象，然后添加函数使用你的委托：
+Now you can create an object and then add the function using your delegate:
 
 ```kotlin
 object DelegatesExt {
