@@ -46,7 +46,6 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 >List created
 >>Although I will explain the Collection later in this book, I will simply explain that you can create a constant List by using a function `listOf` (soon we will speak of `immutable`). It receives a type of `vararg` (variable length parameter), it will automatically infer the type of result.
-
 >> There are many other functions that can be selected, such as `setOf`, `arrayListOf` or `hashSetOf`.
 
 In order to optimize the structure of the project, I also moved some classes into the new package inside.
