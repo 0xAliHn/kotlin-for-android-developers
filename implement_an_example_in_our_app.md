@@ -1,8 +1,8 @@
-# 在我们的App中实现一个例子
+# Implement an example in our App
 
-接口可以被用来从类中提取出相似行为的通用代码。比如，我们可以创建一个接口用于处理app的toolbar。`MainActivity`和`DetailActivity`在处理`toolbar`时会共享这些相似的代码。
+An interface can be used to extract generic code of similar behavior from a class. For example, we can create an interface for handling the app's toolbar. `MainActivity` and` DetailActivity` in processing these `toolbar` share similar code.
 
-但是受限，我们需要做出一些改变，使用被定义在布局中`toolbar`，而不是标准的`ActionBar`。第一件事是继承`NoActionBar`主题。这样`toolbar`不会自动被包含进来：
+But limited, we need to make some changes, use is defined in the layout of the `toolbar`, not the standard` ActionBar`. The first thing is to inherit the theme of `NoActionBar`. Such `toolbar` not automatically include it:
 
 ```kotlin
 <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -11,7 +11,7 @@
 </style>
 ```
 
-我们使用`light`主题。然后我们创建一个`toolbar`的布局，我们稍后会在其它的布局中使用到它：
+We use the `light` theme. And then we create a `toolbar` layout, we will later use it in other layouts:
 
 ```kotlin
 <android.support.v7.widget.Toolbar
@@ -25,9 +25,9 @@
 	app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 ```
 
-`toolbar`指定了它自己的背景，一个针对自己的`dark`主题和一个针对生成的弹出框的`light`主题（`overflow menu`实例）。我们现在已经有了相同的主题：`light`主题和`dark`主题的`Action Bar`。
+`Toolbar` specify its own background, a (` overflow menu` instance) for their `dark` theme and a theme for` light` generate pop-up box. We now have the same theme: `light` theme and` dark` theme `Action Bar`
 
-下一步我们将修改`MainActivity`的布局，增加一个toolbar：
+The next step we will modify the layout of `MainActivity`, add a toolbar:
 
 ```kotlin
 <FrameLayout
@@ -46,14 +46,14 @@
 </FrameLayout>
 ```
 
-现在toolbar被增加到布局中，我们可以开始使用它。我们创建了一个接口，它可以让我们：
+Now that the toolbar is added to the layout, we can start using it. We created an interface that allows us to:
 
-- 改变title
-- 指定是否显示上一步的导航动作
-- 滚动时的toolbar动画
-- 给所有的activity设置相同的菜单，甚至行为
+- change title
+- Specifies whether to display the previous navigation action
+- scroll when the toolbar animation
+- set the same menu for all the activities, and even behavior
 
-然后让我们定义`ToolbarManager`：
+Then let's define `ToolbarManager`:
 
 ```kotlin
 interface ToolbarManager {
@@ -62,9 +62,9 @@ interface ToolbarManager {
 }
 ```
 
-它将需要一个toolbar属性。接口是无状态的，所以属性可以被定义，但是不能赋值。子类会实现这个接口并重写这个属性。
+It will need a toolbar property. The interface is stateless, so the attribute can be defined, but can not be assigned. Subclasses will implement this interface and override this property.
 
-另一方面，我们可以不使用重写来实现无状态的属性。也就是说属性不需要维护一个`backup field`。一个处理toolbar title属性的例子：
+On the other hand, we can not use rewrite to achieve stateless properties. That is, attributes do not need to maintain a `backup field`. An example of handling the toolbar title attribute:
 
 ```kotlin
 var toolbarTitle: String
@@ -74,9 +74,9 @@ var toolbarTitle: String
     }
 ```
 
-因为属性仅仅使用了toolbar，它不需要保存任何新的状态。
+Because the property just uses the toolbar, it does not need to save any new state.
 
-我们现在创建了一个新的函数用来初始化toolbar，inflate一个menu并且设置一个listener：
+We now create a new function to initialize the toolbar, inflate a menu and set a listener:
 
 ```kotlin
 fun initToolbar(){
@@ -91,7 +91,7 @@ fun initToolbar(){
 }
 ```
 
-我们可以增加一个函数用来开启toolbar上面导航icon，设置一个箭头的icon并设置一个当icon被按压时触发的事件：
+We can add a function to open the toolbar above the navigation icon, set an arrow icon and set an icon when the trigger is triggered by the event:
 
 ```kotlin
 fun enableHomeAsUp(up: () -> Unit) {
@@ -105,9 +105,9 @@ private fun createUpDrawable() = with (DrawerArrowDrawable(toolbar.ctx)){
 }
 ```
 
-这个函数接收一个listener，使用[DrawerArrowDrawable]来创建一个最后状态（当箭头已经显示时）的drawable，然后把listener设置给toolbar。
+This function takes a listener, uses [DrawerArrowDrawable] to create a last hop (when the arrow has been shown), and then sets the listener to the toolbar.
 
-最后，接口将会提供一个函数，它允许toolbar可以attached到一个scroll上面，并且根据scroll的方向来执行动画。当往下滚动时toolbar会消失 ，往上滚动toolbar会再次显示：
+Finally, the interface will provide a function that allows the toolbar to be attached to a scroll above, and the animation is executed according to the direction of the scroll. When the scroll down the toolbar will disappear, scroll up the toolbar will show:
 
 ```kotlin
 fun attachToScroll(recyclerView: RecyclerView) {
@@ -119,7 +119,7 @@ fun attachToScroll(recyclerView: RecyclerView) {
 }
 ```
 
-我们会创建两个用于view从屏幕中显示或者消失动画的扩展函数。我们会检查是否动画之前没有执行过。这种方式可以避免每次不同的滚动view都会执行动画：
+We will create two extension functions for viewing the view from the screen or disappearing animation. We will check whether the animation has not been implemented before. This way you can avoid each time a different scroll view will be animated:
 
 ```kotlin
 fun View.slideExit() {
@@ -131,13 +131,13 @@ fun View.slideEnter() {
 }
 ```
 
-在`toobar manager`实现之后，是时候在`MainActivity`中使用它了。我们首先指定toolbar属性。我们可以使用`lazy`委托实现，这样会在我们第一次使用它的时候才会inflate：
+After `toobar manager` implementation, it is time to use it in` MainActivity` '. We first specify the toolbar attribute. We can use `lazy` commission to achieve, this will be the first time we use it will be inflate:
 
 ```kotlin
 override val toolbar by lazy { find<Toolbar>(R.id.toolbar) }
 ```
 
-`MainActivity`将会仅仅初始化toolbar并attach到`RecyclerView`的滚动并修改toolbar的title：
+`MainActivity` will only initialize the toolbar and attach to scroll` RecyclerView` and modify the title toolbar:
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) { 
@@ -159,7 +159,7 @@ setContentView(R.layout.activity_main) initToolbar()
 }
 ```
 
-`DetailActivity`也需要一些布局上的修改：
+`DetailActivity` also needs some changes on the layout:
 
 ```kotlin
 <LinearLayout
@@ -186,7 +186,7 @@ setContentView(R.layout.activity_main) initToolbar()
 </LinearLayout>
 ```
 
-使用相同的方式去指定toolbar属性。`DetailActivity`也会初始化toolbar，设置title并且开启导航返回icon：
+Use the same way to specify the toolbar attribute. `DetailActivity` will also initialize the toolbar, set the title and turn on the navigation Return icon:
 
 ```kotlin
 override fun onCreate(savedInstanceState: Bundle?) {
@@ -200,6 +200,6 @@ override fun onCreate(savedInstanceState: Bundle?) {
 }
 ```
 
-接口可以帮助我们从类中提取出公共的代码来共享相似的行为。可以作为让我们代码精炼合理简洁可复用的替代方案。思考哪方面接口可以帮助你写出更好的代码。
+The interface can help us to extract common code from the class to share similar behavior. Can be used as a refinement alternative to our code refinement. Think about which interface can help you write better code.
 
 [DrawerArrowDrawable]: https://developer.android.com/reference/android/support/v7/graphics/drawable/DrawerArrowDrawable.html
