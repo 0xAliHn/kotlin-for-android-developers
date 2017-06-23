@@ -14,7 +14,7 @@ class App : Application() {
 }
 ```
 
-For this Application instance to be used, remember to add this `App` in` AndroidManifest.xml '
+For this Application instance to be used, remember to add this `App` in `AndroidManifest.xml`
 
 ```xml
 <application
