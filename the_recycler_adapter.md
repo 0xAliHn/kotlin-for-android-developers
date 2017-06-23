@@ -1,8 +1,8 @@
 # The Recycler Adapter
 
-我们同样需要一个`RecyclerView`的Adapter。[之前我在我博客中讨论过`RecyclerView`]，如果你以前没有使用过，它可能会有所帮助。
+We also need a `RecyclerView` Adapter. [I talked about `RecyclerView` before my blog], and it might be helpful if you have not used it before.
 
-`RecyclerView`中所使用到的布局现在只需要一个`TextView`，我会手动去创建这个简单的文本列表。增加一个名为`ForecastListAdapter.kt`的Kotlin文件，包括如下代码：
+`RecyclerView` used in the layout now only need a `TextView`, I will manually create this simple text list. Add a Kotlin file named `ForecastListAdapter.kt`, including the following code:
 ```kotlin
 class ForecastListAdapter(val items: List<String>) :
         RecyclerView.Adapter<ForecastListAdapter.ViewHolder>() {
@@ -20,9 +20,9 @@ class ForecastListAdapter(val items: List<String>) :
 }
 ```
 
-又是如此，我们可以像访问属性一样访问context和text。你可以保持以往那样操作（使用getters和setters）,但是你会得到一个编译器的警告。如果你还是倾向于Java中的使用方式，这个检查可以被关闭。但是一旦你使用上了这种属性调用的方式你就会爱上它，而且它也节省了额外的字符总量。
+Again, we can access context and text like access properties. You can keep the previous operations (using getters and setters), but you will get a compiler warning. If you still prefer to use it in Java, this check can be turned off. But once you use the property call on the way you will fall in love with it, and it also saves the total amount of extra characters.
 
-回到`MainActivity`，现在简单地创建一系列的String放入List中，然后使用创建分配Adapter实例。
+Back to `MainActivity`, now simply create a series of String into the List, and then use the Create Assignment Adapter instance.
 
 ```kotlin
 private val items = listOf(
@@ -44,15 +44,15 @@ override fun onCreate(savedInstanceState: Bundle?) {
     
 ```
 
->List的创建
->>尽管我会在本书后面来对Collection进行讲解，但是我现在仅仅简单地解释你可以通过使用一个函数`listOf`创建一个常量的List（很快我们就会讲到的`immutable`）。它接收一个任何类型的`vararg`（可变长的参数），它会自动推断出结果的类型。
+>List created
+>>Although I will explain the Collection later in this book, I will simply explain that you can create a constant List by using a function `listOf` (soon we will speak of `immutable`). It receives a type of `vararg` (variable length parameter), it will automatically infer the type of result.
 
->> 还有很多其它的函数可以选择，比如`setOf`，`arrayListOf`或者`hashSetOf`。
+>> There are many other functions that can be selected, such as `setOf`, `arrayListOf` or `hashSetOf`.
 
-为了优化项目的结构，我也移动了一些类到新的包里面。
+In order to optimize the structure of the project, I also moved some classes into the new package inside.
 
-我们在上面很简短的代码中看到了很多新的东西，所以我会在下一章讲到它们。我们现在必须要学习一些比如基本类型，变量，属性等比较重要的概念才能继续下去。
+We've seen a lot of new stuff in the very short code above, so I'll talk about them in the next chapter. We must now learn some basic concepts such as basic types, variables, attributes and so on to continue.
 
 
 
-[之前我在我博客中讨论过`RecyclerView`]: http://antonioleiva.com/recyclerview/
+[I talked about 'RecyclerView` before my blog]: http://antonioleiva.com/recyclerview/
