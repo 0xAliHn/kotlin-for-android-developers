@@ -1,3 +1,3 @@
 # Lambdas
 
-Lambda表达式是一种很简单的方法，去定义一个匿名函数。Lambda是非常有用的，因为它们避免我们去写一些包含了某些函数的抽象类或者接口，然后在类中去实现它们。在Kotlin，我们把一个函数作为另一个函数的参数。
+Lambda expression is a very simple way to define an anonymous function. Lambda is very useful because they avoid getting some of the abstract classes or interfaces that contain some of the functions and then implementing them in the class. In Kotlin, we take a function as a function of another function.
