@@ -1,6 +1,6 @@
-# 使Forecast list可点击
+# Make Forecast list available
 
-作为一个真正的app，当前列表的每一个item布局应该做一些工作。第一件事就是创建一个合适的XML，能符合我们的需要就行。我们希望显示一个图标，日期，描述以及最高和最低温度。所以让我们创建一个名为`item_forecast.xml`的layout：
+As a real app, the current list of each item layout should do some work. The first thing is to create a suitable XML, to meet our needs on the line. We want to display an icon, date, description and maximum and minimum temperatures. So let's create a layout called `item_forecast.xml`.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -67,14 +67,14 @@
 </LinearLayout>
 ```
 
-Domain model和数据映射时必须生成完整的图标uil，所以我们可以这样去加载它：
+Domain model and data mapping must generate a complete icon uil, so we can do this to load it:
 
 ```kotlin
 data class Forecast(val date: String, val description: String,
 					val high: Int, val low: Int, val iconUrl: String)
 ```
 
-在`ForecastDataMapper`中：
+In `ForecastDataMapper`:
 
 ```kotlin
 private fun convertForecastItemToDomain(forecast: Forecast): ModelForecast {
@@ -87,13 +87,13 @@ private fun generateIconUrl(iconCode: String): String
         = "http://openweathermap.org/img/w/$iconCode.png"
 ```
 
-我们从第一个请求中得到图标的code，用来组成完成的图标url。加载图片最简单的方式是使用图片加载库。[`Picasso`]是一个不错的选择。它需要加到`build.gradle`的依赖中：
+We get the icon from the first request code, used to form the completion of the icon url. The easiest way to load an image is to use the image load library. [`Picasso`] is a good choice. It needs to be added to the `build.gradle` dependency:
 
 ```groovy
 compile "com.squareup.picasso:picasso:<version>"
 ```
 
-如此，Adapter也需要一个大的改动了。还需要一个click listener，我们来定义它：
+So, Adapter also need a big change. Also need a click listener, we have to define it:
 
 ```kotlin
 public interface OnItemClickListener {
@@ -101,14 +101,14 @@ public interface OnItemClickListener {
 }
 ```
 
-如果你还记得上一课程，当被调用时`invoke`方法可以被省略。所以我们来使用它来简化。listener可以被以下两种方式调用：
+If you still remember the previous lesson, the `invoke` method can be omitted when called. So let's use it to simplify it. The listener can be called in two ways:
 
 ```kotlin
 itemClick.invoke(forecast)
 itemClick(forecast)
 ```
 
-`ViewHolder`将负责去绑定数据到新的View：
+`ViewHolder` will be responsible for binding data to the new View:
 
 ```kotlin
 class ViewHolder(view: View, val itemClick: OnItemClickListener) :
@@ -140,7 +140,7 @@ class ViewHolder(view: View, val itemClick: OnItemClickListener) :
 }
 ```
 
-现在Adapter的构造方法接收一个`itemClick`。创建和绑定数据也是更简单：
+Now the constructor of the Adapter receives a `itemClick`. Creating and binding data is also simpler:
 
 ```kotlin
 public class ForecastListAdapter(val weekForecast: ForecastList,
@@ -161,16 +161,16 @@ public class ForecastListAdapter(val weekForecast: ForecastList,
 }
 ```
 
-如果你使用了上面这些代码，`parent.ctx`不会被编译成功。Anko提供了大量的扩展函数来让Android编程更简单。举个例子，activitys、fragments以及其它包含了`ctx`这个属性，通过`ctx`这个属性来返回context，但是在View中缺少这个属性。所以我们要创建一个新的名叫`ViewExtensions.kt`文件来代替`ui.utils`，然后增加这个扩展属性：
+If you use the above code, `parent.ctx` will not be compiled successfully. Anko offers a number of extended functions to make Android programming easier. For example, the activitys, fragments, and others contain the `ctx` attribute, which returns the context through the `ctx` attribute, but is missing this property in the View. So we want to create a new name called `ViewExtensions.kt` file instead of `ui.utils`, and then add this extended attribute:
 
 ```kotlin
 val View.ctx: Context
     get() = context
 ```
 
-从现在开始，任何View都可以使用这个属性了。这个不是必须的，因为你可以使用扩展的context属性，但是我觉得如果我们使用`ctx`的话在其它类中也会更有连贯性。而且，这是一个很好的怎么去使用扩展属性的例子。
+From now on, any View can use this property. This is not necessary because you can use the extended context attribute, but I think that if we use `ctx`, it will be more coherent in other classes. And that's a good example of how to use extended attributes.
 
-最后，MainActivity调用setAdapter，最后结果是这样的：
+Finally, the MainActivity calls the setAdapter, and the result is this:
 ```kotlin
 forecastList.adapter = ForecastListAdapter(result,
         object : ForecastListAdapter.OnItemClickListener{
@@ -180,8 +180,8 @@ forecastList.adapter = ForecastListAdapter(result,
 	    })
 ```
 
-如你所见，创建一个匿名内部类，我们去创建了一个实现了刚刚创建的接口的对象。看起来不是很好，对吧？这是因为我们还没开始试使用另一个强大的函数式编程的特性，但是你将会在下一章中学习到怎么去把这些代码转换得更简单。
+As you can see, to create an anonymous inner class, we went to create an implementation of the interface just created the object. Looks not very good, right? This is because we have not started experimenting with another powerful functional programming feature, but you will learn how to convert the code to the simpler in the next chapter.
 
-去代码库中更新新的代码。UI开始看起来更好了。
+Go to the codebase to update the new code. UI starts to look better.
 
 [`Picasso`]: http://square.github.io/picasso/
