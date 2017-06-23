@@ -1,6 +1,6 @@
 # Create a layout
 
-Show the list of weather forecasts We use `RecyclerView`, so you need to add a new dependency to` build.gradle`:
+Show the list of weather forecasts We use `RecyclerView`, so you need to add a new dependency to `build.gradle`:
 
 ```groovy
 dependencies {
