@@ -1,8 +1,8 @@
-# 总数操作符
+# Total operator
 
 #### any
 
-如果至少有一个元素符合给出的判断条件，则返回true。
+Returns true if at least one element matches the given judgment condition.
 
 ```kotlin
 val list = listOf(1, 2, 3, 4, 5, 6)
@@ -12,7 +12,7 @@ assertFalse(list.any { it > 10 })
 
 #### all
 
-如果全部的元素符合给出的判断条件，则返回true。
+Returns true if all elements match the given judgment condition.
 
 ```kotlin
 assertTrue(list.all { it < 10 })
@@ -21,7 +21,7 @@ assertFalse(list.all { it % 2 == 0 })
 
 #### count
 
-返回符合给出判断条件的元素总数。
+Returns the total number of elements that match the criteria given.
 
 ```kotlin
 assertEquals(3, list.count { it % 2 == 0 })
@@ -29,7 +29,7 @@ assertEquals(3, list.count { it % 2 == 0 })
 
 #### fold
 
-在一个初始值的基础上从第一项到最后一项通过一个函数累计所有的元素。
+Accumulates all the elements from the first item to the last item on the basis of an initial value.
 
 ```kotlin
 assertEquals(25, list.fold(4) { total, next -> total + next })
@@ -37,7 +37,7 @@ assertEquals(25, list.fold(4) { total, next -> total + next })
 
 #### foldRight
 
-与`fold`一样，但是顺序是从最后一项到第一项。
+Same as `fold`, but the order is from the last item to the first item.
 
 ```kotlin
 assertEquals(25, list.foldRight(4) { total, next -> total + next })
@@ -45,7 +45,7 @@ assertEquals(25, list.foldRight(4) { total, next -> total + next })
 
 #### forEach
 
-遍历所有元素，并执行给定的操作。
+Traverse all the elements and perform the given operation.
 
 ```kotlin
 list.forEach { println(it) }
@@ -53,7 +53,7 @@ list.forEach { println(it) }
 
 #### forEachIndexed
 
-与`forEach`，但是我们同时可以得到元素的index。
+And `forEach`, but we can get the index of the element at the same time.
 
 ```kotlin
 list.forEachIndexed { index, value
@@ -62,7 +62,7 @@ list.forEachIndexed { index, value
 
 #### max
 
-返回最大的一项，如果没有则返回null。
+Returns the largest item, or null if no.
 
 ```kotlin
 assertEquals(6, list.max())
@@ -70,7 +70,7 @@ assertEquals(6, list.max())
 
 #### maxBy
 
-根据给定的函数返回最大的一项，如果没有则返回null。
+Returns the largest item according to the given function, or null if it does not.
 
 ```kotlin
 // The element whose negative is greater
@@ -79,7 +79,7 @@ assertEquals(1, list.maxBy { -it })
 
 #### min
 
-返回最小的一项，如果没有则返回null。
+Returns the smallest item, or null if none.
 
 ```kotlin
 assertEquals(1, list.min())
@@ -87,7 +87,7 @@ assertEquals(1, list.min())
 
 #### minBy
 
-根据给定的函数返回最小的一项，如果没有则返回null。
+Returns the smallest item based on the given function, or null if it does not.
 
 ```kotlin
 // The element whose negative is smaller
@@ -96,7 +96,7 @@ assertEquals(6, list.minBy { -it })
 
 #### none
 
-如果没有任何元素与给定的函数匹配，则返回true。
+Returns true if no element matches a given function.
 
 ```kotlin
 // No elements are divisible by 7
@@ -105,7 +105,7 @@ assertTrue(list.none { it % 7 == 0 })
 
 #### reduce
 
-与`fold`一样，但是没有一个初始值。通过一个函数从第一项到最后一项进行累计。
+Same as `fold`, but not an initial value. Through a function from the first item to the last one to accumulate.
 
 ```kotlin
 assertEquals(21, list.reduce { total, next -> total + next })
@@ -113,7 +113,7 @@ assertEquals(21, list.reduce { total, next -> total + next })
 
 #### reduceRight
 
-与`reduce`一样，但是顺序是从最后一项到第一项。
+Same as `reduce`, but the order is from the last item to the first item.
 
 ```kotlin
 assertEquals(21, list.reduceRight { total, next -> total + next })
@@ -121,7 +121,7 @@ assertEquals(21, list.reduceRight { total, next -> total + next })
 
 #### sumBy
 
-返回所有每一项通过函数转换之后的数据的总和。
+Returns the sum of all the data after each function conversion.
 
 ```kotlin
 assertEquals(3, list.sumBy { it % 2 })
