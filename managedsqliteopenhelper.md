@@ -1,6 +1,6 @@
 # ManagedSqliteOpenHelper
 
-Anko提供了很多强大的SqliteOpenHelper来可以大量简化代码。当我们使用一个一般的`SqliteOpenHelper`，我们需要去调用`getReadableDatabase()`或者`getWritableDatabase()`，然后我们可以执行我们的搜索并拿到结果。在这之后，我们不能忘记调用`close()`。使用`ManagedSqliteOpenHelper`我们只需要：
+Anko offers a lot of powerful SqliteOpenHelper to greatly simplify code. When we use a generic `SqliteOpenHelper`, we need to call` getReadableDatabase()` or `getWritableDatabase()` , and then we can perform our search and get the result. After that, we can not forget to call `close()`. Use `ManagedSqliteOpenHelper` we only need:
 
 ```kotlin
 forecastDbHelper.use {
@@ -8,7 +8,7 @@ forecastDbHelper.use {
 }
 ```
 
-在lambda里面，我们可以直接使用`SqliteDatabase`中的函数。它是怎么工作的？阅读Anko函数的实现方式真是一件有趣的事情，你可以从这里学到Kotlin的很多知识：
+In lambda inside, we can directly use the `SqliteDatabase` function. How does it work It's really fun to read the way the Anko function is implemented. You can learn a lot of Kotlin's knowledge from here:
 
 ```kotlin
 public fun <T> use(f: SQLiteDatabase.() -> T): T {
@@ -20,7 +20,7 @@ public fun <T> use(f: SQLiteDatabase.() -> T): T {
 }
 ```
 
-首先，`use`接收一个`SQLiteDatabase`的扩展函数。这表示，我们可以使用`this`在大括号中，并且处于`SQLiteDatabase`对象中。这个函数扩展可以返回一个值，所以我们可以像这么做：
+First, `use` receives an extension function of` SQLiteDatabase`. This means that we can use `this` in curly braces and are in the `SQLiteDatabase` object. This function extension can return a value, so we can do this:
 
 ```kotin
 val result = forecastDbHelper.use {
@@ -29,8 +29,8 @@ val result = forecastDbHelper.use {
 }
 ```
 
-要记住，在一个函数中，最后一行表示返回值。因为T没有任何的限制，所以我们可以返回任何对象。甚至如果我们不想返回任何值就使用`Unit`。
+Keep in mind that in a function, the last line represents the return value. Because T does not have any restrictions, so we can return any object. Even if we do not want to return any value on the use of `Unit`.
 
-由于使用了`try-finall`，`use`方法会确保不管在数据库操作执行成功还是失败都会去关闭数据库。
+With `try-finall`, the `use` method ensures that the database will be shut down regardless of whether the database operation succeeds or fails.
 
-而且，在`sqliteDatabase`中还有很多有用的扩展函数，我们会在之后使用到他们。但是现在让我们先定义我们的表和实现`SqliteOopenHelper`。
+Also, there are a lot of useful extension functions in `sqliteDatabase`, which we will use later. But now let's first define our table and implement `SqliteOopenHelper`.
