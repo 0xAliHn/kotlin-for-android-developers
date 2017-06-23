@@ -1,4 +1,4 @@
-#Convert json to data class
+# Convert json to data class
 
 We now know how to create a data class, then we began to prepare to resolve the data. In the `date` package, create a new file named `ResponseClasses.kt`. If you open the url in Chapter 8, you can see the entire structure of the json file. Its basic composition includes a city, a series of weather forecasts, the city has id, name, where the coordinates. Every weather forecast has a lot of information, such as date, different temperatures, and an id by description and icon.
 
