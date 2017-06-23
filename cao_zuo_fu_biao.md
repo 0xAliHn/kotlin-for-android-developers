@@ -1,10 +1,11 @@
-# 操作符表
+# Operator table
 
-这里你可以看见一系列包括`操作符`和`对应方法`的表。对应方法必须在指定的类中通过各种可能性被实现。
+Here you can see a series of tables that include the `operator` and `corresponding methods`. The corresponding method must be implemented in the specified class by various possibilities.
 
-__一元操作符__
 
-| 操作符 | 函数|
+__unary operator__
+
+| Operators | Functions |
 |----|
 | +a | a.unaryPlus() |
 | -a | a.unaryMinus() |
@@ -12,9 +13,9 @@ __一元操作符__
 | a++ | a.inc() |
 | a-- | a.dec() |
 <br/>
-__二元操作符__
+__binary operator__
 
-| 操作符 | 函数|
+| Operators | Functions |
 |----|
 | a + b | a.plus(b) |
 | a - b | a.minus(b) |
@@ -30,9 +31,9 @@ __二元操作符__
 | a /= b | a.divAssign(b) |
 | a %= b | a.modAssign(b) |
 <br/>
-__数组操作符__
+__array operator__
 
-| 操作符 | 函数|
+| Operators | Functions |
 |----|
 | a[i] | a.get(i) |
 | a[i, j] | a.get(i, j) |
@@ -41,24 +42,24 @@ __数组操作符__
 | a[i, j] = b | a.set(i, j, b) |
 | a[i\_1, ..., i\_n] = b | a.set(i\_1, ..., i\_n, b) |
 <br/>
-__等于操作符__
+__is equal to operator__
 
-| 操作符 | 函数|
+| Operators | Functions |
 |----|
 | a == b | a?.equals(b) ?: b === null |
 | a != b | !(a?.equals(b) ?: b === null) |
 
-相等操作符有一点不同，为了达到正确合适的相等检查做了更复杂的转换，因为要得到一个确切的函数结构比较，不仅仅是指定的名称。方法必须要如下准确地被实现：
+Equal operators are a bit different, in order to achieve the correct and appropriate checks to do a more complex conversion, because to get an exact function structure comparison, not just the specified name. The method must be implemented as follows:
 
 ```kotlin
 operator fun equals(other: Any?): Boolean
 ```
-操作符`===`和`!==`用来做身份检查（它们分别是Java中的`==`和`!=`），并且它们不能被重载。
+The operators `===` and `!==` are used for identity checking (they are `==` and `!=` In Java, respectively), and they can not be overloaded.
 
 <br/>
-__函数调用__
+__function call__
 
-| 方法 | 调用 |
+| Method | call |
 |----|
 | a(i) | a.invoke(i) |
 | a(i, j) | a.invoke(i, j) |
