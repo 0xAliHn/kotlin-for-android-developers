@@ -41,4 +41,5 @@ supportsLollipop {
 ```
 
 For example, Anko is based on this idea to achieve `DSL` of the `Android Layout`. You can also see an example of  `Kotlin reference` [`use of DSL to write HTML`] .
+
 [`use of DSL to write HTML`]: http://kotlinlang.org/docs/reference/type-safe-builders.html
