@@ -1,6 +1,6 @@
-# 提供一个新的activity
+# Provide a new activity
 
-现在我们准备去创建一个`DetailActivity`。我们详情activity将会接收一组从主activity传过来的参数：`forecast id`和`城市名称`。第一个参数将会用来从数据库中请求数据，城市名称用于显示在toolbar上。所以我们首先需要定义一组参数的名字：
+Now we are going to create a `DetailActivity`. Our details activity will receive a set of parameters passed from the main activity: `forecast id` and `city name`. The first argument will be used to request data from the database, and the city name is used to display on the toolbar. So we first need to define the name of a set of parameters:
 
 ```kotlin
 public class DetailActivity : AppCompatActivity() {
@@ -12,7 +12,7 @@ public class DetailActivity : AppCompatActivity() {
 }
 ```
 
-在`onCreate`函数中，第一步是去设置content view。UI是非常简单的，但是对于这个app来说是足够了：
+In the `onCreate` function, the first step is to set the content view. UI is very simple, but for the app is enough:
 
 ```kotlin
 <LinearLayout
@@ -73,14 +73,14 @@ public class DetailActivity : AppCompatActivity() {
 </LinearLayout>
 ```
 
-然后在`onCreate`代码中去设置它。使用城市的名字设置成toolbar的title。`intent`和`title`通过下面的方法被自动影射到属性：
+And then set it in the `onCreate` code. Use the name of the city to set the title of the toolbar. `Intent` and` title` are automatically mapped to attributes by the following method:
 
 ```kotlin
 setContentView(R.layout.activity_detail)
 title = intent.getStringExtra(CITY_NAME)
 ```
 
-`onCreate`实现的另一部分是调用command。这与我们之前做的非常相似：
+`Another part of the implementation of` onCreate` is to call command. This is very similar to what we did before:
 
 ```kotlin
 async {
@@ -89,7 +89,7 @@ async {
 }
 ```
 
-当结果从数据库中获取之后，`bindForecast`函数在UI线程中被调用。我们在这个activity中又一次使用了Kotlin Android Extensions插件来实现不使用`findViewById`来从XML中获取到属性：
+When the result is fetched from the database, the `bindForecast` function is called in the UI thread. We have used the Kotlin Android Extensions plugin again in this activity to do not use `findViewById` to get the property from XML:
 
 ```kotlin
 import kotlinx.android.synthetic.activity_detail.*
@@ -103,7 +103,7 @@ private fun bindForecast(forecast: Forecast) = with(forecast) {
 }
 ```
 
-这里有一些有趣的地方。比如，我创建了另一个扩展函数来转换一个`Long`对象到一个用于显示的日期字符串。记住我们在adapter中也使用了，所以明确定义它为一个函数是个不错的实践：
+Here are some interesting places. For example, I created another extension function to convert a `Long` object to a date string for display. Remember that we are also used in the adapter, so clearly defined it as a function is a good practice:
 
 ```kotlin
 fun Long.toDateString(dateFormat: Int = DateFormat.MEDIUM): String {
@@ -112,9 +112,9 @@ fun Long.toDateString(dateFormat: Int = DateFormat.MEDIUM): String {
 }
 ```
 
-我会得到一个`date format`（或者使用默认的DateFormat.MEDIUM）并转换`Long`为一个用户可以理解的`String`。
+I'll get a `date format` (or use the default DateFormat.MEDIUM) and converted into a` Long` user can understand `String`.
 
-另一个有趣的地方是`bindWeather`函数。它会接收一个`vararg`的由`Int`和`TextView`组成的`pairs`，并且根据温度给`TextView`设置不同的`text`和`text color`。
+Another interesting place is the `bindWeather` function. It receives a `Int`` pairs` and `TextView`` vararg` a composition, and to set a different `TextView`` text` and `text color` accordance with the temperature.
 
 ```kotlin
 private fun bindWeather(vararg views: Pair<Int, TextView>) = views.forEach {
@@ -127,15 +127,15 @@ private fun bindWeather(vararg views: Pair<Int, TextView>) = views.forEach {
 }
 ```
 
-每一个pair，它会设置一个`text`来显示温度和一个根据温度匹配的不同的颜色：低温度用红色，中温度用橙色，其它用绿色。温度值是比较随机的，但是这个是使用`when`表达式让代码变得简短精炼的很好的代表。
+Each pair, it will set a `text` to show the temperature and a different color according to the temperature match: low temperature with red, medium temperature with orange, the other with green. The temperature value is relatively random, but this is a good representation of using the `when` expression to make the code thinner.
 
-`color`是我想念的Anko中的一个扩展函数，它可以很简洁的方式从resources中获取一个color，类似于我们在其它地方使用到的`dimen`。我们写下这一行的时候，当前`support library`依赖`ContextCompat`来从不同的Android版本中获取一个color：
+`Color` is an extension function I miss Anko in, it can be very simple way to get a color from resources, similar to our use elsewhere` dimen`. When we write this line, the current `support library` relies on` ContextCompat` to get a color from a different Android version:
 
 ```kotlin
 public fun Context.color(res: Int): Int = ContextCompat.getColor(this, res)
 ```
 
-`AndroidManifest`也需要知道新activity的存在：
+`AndroidManifest` also needs to know the existence of new activity:
 
 ```kotlin
 <activity
