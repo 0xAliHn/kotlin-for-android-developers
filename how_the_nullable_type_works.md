@@ -50,8 +50,6 @@ val myString = a?.toString() ?: return false
 val myString = a?.toString() ?: throw IllegalStateException()
 ```
 
-然后，我们可能会遇到这种情景，我们确定我们是在用一个非null变量，但是他的类型却是可null的。我们可以使用`!!`操作符来强制编译器执行可null类型时跳过限制检查：
-
 Then we may encounter this scenario, we make sure we are using a non-null variable, but this type is nullable. We can use the `!!` Operator to force the compiler may skip execution restriction checking null type:
 
 ```kotlin
