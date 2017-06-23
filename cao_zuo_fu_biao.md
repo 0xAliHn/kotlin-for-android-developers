@@ -5,31 +5,31 @@ Here you can see a series of tables that include the `operator` and `correspondi
 
 __unary operator__
 
-| Operators | Functions |
-|----|
-| +a | a.unaryPlus() |
-| -a | a.unaryMinus() |
-| !a | a.not() |
-| a++ | a.inc() |
-| a-- | a.dec() |
+ Operators | Functions 
+----|----
+ +a | a.unaryPlus()
+ -a | a.unaryMinus() 
+ !a | a.not() 
+ a++ | a.inc() 
+ a-- | a.dec() 
 <br/>
 __binary operator__
 
-| Operators | Functions |
-|----|
-| a + b | a.plus(b) |
-| a - b | a.minus(b) |
-| a * b | a.times(b) |
-| a / b | a.div(b) |
-| a % b | a.mod(b) |
-| a..b | a.rangeTo(b) |
-| a in b | a.contains(b) |
-| a !in b | !a.contains(b) |
-| a += b | a.plusAssign(b) |
-| a -= b | a.minusAssign(b) |
-| a *= b | a.timesAssign(b) |
-| a /= b | a.divAssign(b) |
-| a %= b | a.modAssign(b) |
+ Operators | Functions 
+----|----
+ a + b | a.plus(b) 
+ a - b | a.minus(b) 
+ a * b | a.times(b) 
+ a / b | a.div(b) 
+ a % b | a.mod(b) 
+ a..b | a.rangeTo(b) 
+ a in b | a.contains(b) 
+ a !in b | !a.contains(b) 
+ a += b | a.plusAssign(b) 
+ a -= b | a.minusAssign(b) 
+ a *= b | a.timesAssign(b) 
+ a /= b | a.divAssign(b) 
+ a %= b | a.modAssign(b) 
 <br/>
 __array operator__
 
