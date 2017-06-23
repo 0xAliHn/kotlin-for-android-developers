@@ -1,8 +1,8 @@
-# 过滤操作符
+# Filter operator
 
 #### drop
 
-返回包含去掉前n个元素的所有元素的列表。
+Returns a list containing all the elements that removed the first n elements.
 
 ```kotlin
 assertEquals(listOf(5, 6), list.drop(4))
@@ -10,7 +10,7 @@ assertEquals(listOf(5, 6), list.drop(4))
 
 #### dropWhile
 
-返回根据给定函数从第一项开始去掉指定元素的列表。
+Returns a list of the specified elements removed from the first item according to the given function.
 
 ```kotin
 assertEquals(listOf(3, 4, 5, 6), list.dropWhile { it < 3 })
@@ -18,7 +18,7 @@ assertEquals(listOf(3, 4, 5, 6), list.dropWhile { it < 3 })
 
 #### dropLastWhile
 
-返回根据给定函数从最后一项开始去掉指定元素的列表。
+Returns a list of the specified elements removed from the last item based on the given function.
 
 ```kotlin
 assertEquals(listOf(1, 2, 3, 4), list.dropLastWhile { it > 4 })
@@ -26,7 +26,7 @@ assertEquals(listOf(1, 2, 3, 4), list.dropLastWhile { it > 4 })
 
 #### filter
 
-过滤所有符合给定函数条件的元素。
+Filter all elements that meet the given function's condition.
 
 ```kotin
 assertEquals(listOf(2, 4, 6), list .ilter { it % 2 == 0 })
@@ -34,7 +34,7 @@ assertEquals(listOf(2, 4, 6), list .ilter { it % 2 == 0 })
 
 #### filterNot
 
-过滤所有不符合给定函数条件的元素。
+Filter all elements that do not meet the given function's condition.
 
 ```kotin
 assertEquals(listOf(1, 3, 5), list.filterNot { it % 2 == 0 })
@@ -42,7 +42,7 @@ assertEquals(listOf(1, 3, 5), list.filterNot { it % 2 == 0 })
 
 #### filterNotNull
 
-过滤所有元素中不是null的元素。
+Filter all elements that are not null in all elements.
 
 ```kotlin
 assertEquals(listOf(1, 2, 3, 4), listWithNull.filterNotNull())
@@ -50,7 +50,7 @@ assertEquals(listOf(1, 2, 3, 4), listWithNull.filterNotNull())
 
 #### slice
 
-过滤一个list中指定index的元素。
+Filter the elements of the specified index in the list.
 
 ```kotlin
 assertEquals(listOf(2, 4, 5), list.slice(listOf(1, 3, 4)))
@@ -58,7 +58,7 @@ assertEquals(listOf(2, 4, 5), list.slice(listOf(1, 3, 4)))
 
 #### take
 
-返回从第一个开始的n个元素。
+Returns the n elements starting from the first.
 
 ```kotlin
 assertEquals(listOf(1, 2), list.take(2))
@@ -66,7 +66,7 @@ assertEquals(listOf(1, 2), list.take(2))
 
 #### takeLast
 
-返回从最后一个开始的n个元素
+Returns the n elements starting from the last one
 
 ```kotlin
 assertEquals(listOf(5, 6), list.takeLast(2))
@@ -74,7 +74,7 @@ assertEquals(listOf(5, 6), list.takeLast(2))
 
 #### takeWhile
 
-返回从第一个开始符合给定函数条件的元素。
+Returns the element that matches the given function condition from the first.
 
 ```kotlin
 assertEquals(listOf(1, 2), list.takeWhile { it < 3 })
