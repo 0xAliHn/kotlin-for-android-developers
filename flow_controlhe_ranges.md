@@ -1,3 +1,3 @@
-# Flow control和ranges
+# Flow control and ranges
 
-我在我们的代码中使用了一些条件表达式，但是现在是时候去更深地去解释它们了。我们通常都在使用过程式编程语言的时候很少地去使用代码流控制的机制去编写（有些过程式编程语言中几乎已消失），但是它们还是很有用的。这也是一个新的强大的想法让解决一些特定的情况下的问题变得更容易。
+I used some conditional expressions in our code, but it is time to go deeper to explain them. We usually use procedural programming language when we rarely use code flow control mechanism to write (some procedural programming language has almost disappeared), but they are still very useful. It is also a new powerful idea to make it easier to solve some of the problems in a particular situation.
