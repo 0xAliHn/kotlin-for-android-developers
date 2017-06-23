@@ -1,8 +1,8 @@
-# 顺序操作符
+# Order operator
 
 #### reverse
 
-返回一个与指定list相反顺序的list。
+Returns a list in the reverse order of the specified list.
 
 ```kotlin
 val unsortedList = listOf(3, 2, 7, 5)
@@ -11,7 +11,7 @@ assertEquals(listOf(5, 7, 2, 3), unsortedList.reverse())
 
 #### sort
 
-返回一个自然排序后的list。
+Returns a list of naturally sorted ones.
 
 ```kotlin
 assertEquals(listOf(2, 3, 5, 7), unsortedList.sort())
@@ -19,7 +19,7 @@ assertEquals(listOf(2, 3, 5, 7), unsortedList.sort())
 
 #### sortBy
 
-返回一个根据指定函数排序后的list。
+Returns a list sorted by the specified function.
 
 ```kotlin
 assertEquals(listOf(3, 7, 2, 5), unsortedList.sortBy { it % 3 })
@@ -27,7 +27,7 @@ assertEquals(listOf(3, 7, 2, 5), unsortedList.sortBy { it % 3 })
 
 #### sortDescending
 
-返回一个降序排序后的List。
+Returns a descending sorted list.
 
 ```kotlin
 assertEquals(listOf(7, 5, 3, 2), unsortedList.sortDescending())
@@ -35,7 +35,7 @@ assertEquals(listOf(7, 5, 3, 2), unsortedList.sortDescending())
 
 #### sortDescendingBy
 
-返回一个根据指定函数降序排序后的list。
+Returns a list that is sorted by descending sorted by the specified function.
 
 ```kotlin
 assertEquals(listOf(2, 5, 7, 3), unsortedList.sortDescendingBy { it % 3 })
