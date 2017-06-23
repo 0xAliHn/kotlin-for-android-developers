@@ -23,7 +23,7 @@ Then, `activity_main.xml` reads:
 </FrameLayout>
 ```
 
-In `Mainactivity.kt` to remove all the code used to test before it can run properly (should now be prompted to error). For the time being we use the old `findViewByid ()` way:
+In `Mainactivity.kt` to remove all the code used to test before it can run properly (should now be prompted to error). For the time being we use the old `findViewByid()` way:
 
 ```kotlin
 val forecastList = findViewById(R.id.forecast_list) as RecyclerView
