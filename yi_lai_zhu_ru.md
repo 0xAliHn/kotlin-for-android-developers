@@ -1,12 +1,12 @@
-# 依赖注入
+# Dependent injection
 
-我试图不去增加很复杂的结构代码，保持简洁可测试性的代码和好的实践，我想我应该用Kotlin从其它方面去简化代码。如果你想了解一些控制反转或者依赖注入的话题，你可以查看我关于[Android中使用Dagger注入]的一系列文章。第一篇文章有关于他们这个团队的简单描写。
+I tried not to add very complicated structural code, keep the code of the testability and good practice, and I think I should use Kotlin to simplify the code from other aspects. If you want to learn about some of the reverse or dependency injection topics, you can check out a series of articles about [using Dagger in Android]. The first article has a brief description of their team.
 
-一种简单的方式，如果我们想拥有一些独立于其他类的类，这样更容易测试，并编写代码，易于扩展和维护，这时我们需要使用依赖注入。我们不去在类内部去实例化，我们在其它地方提供它们（通常通过构造函数）或者实例化它们。用这种方式，我们可以用其它的对象来替代他们。比如可以实现同样的接口或者在tests中使用mocks。
+A simple way, if we want to have some classes that are independent of other classes, make it easier to test and write code that is easy to extend and maintain when we need to use dependency injection. We do not instantiate in the class, we provide them in other places (usually through the constructor) or instantiate them. In this way, we can use other objects to replace them. For example, you can achieve the same interface or in the use of mocks tests.
 
-但是现在，这些依赖必须要在某些地方被提供，所以依赖注入由提供合作者的类组成。这些通常使用依赖注入器来完成。[Dagger]可能是Android上最流行的依赖注入器。当然当我们提供依赖有一定复杂性的时候是个很好的替代品。
+But now that these dependencies must be provided in some places, dependency injection consists of classes that provide partners. These are usually done using a dependency injector. [Dagger] is probably the most popular dependency injector on Android. Of course, when we provide a certain degree of complexity is a good alternative.
 
-但是最小的替代是可以在这个构造函数中使用默认值。我们可以给构造函数的参数通过分配默认值的方式提供一个依赖，然后在不同的情况下提供不同的实例。比如，在我们的`ForecastDbHelper`我们可以用更智能的方式提供一个context：
+But the smallest alternative is to use the default value in this constructor. We can provide a dependency to the constructor's parameters by assigning default values, and then provide different instances in different situations. For example, in our `ForecastDbHelper` we can use a more intelligent way to provide a context:
 
 ```kotlin
 class ForecastDbHelper(ctx: Context = App.instance) :
@@ -16,14 +16,14 @@ class ForecastDbHelper(ctx: Context = App.instance) :
 }
 ```
 
-现在我们有两种方式来创建这个类：
+Now we have two ways to create this class:
 
 ```kotlin
 val dbHelper1 = ForecastDbHelper() // 它会使用 App.instance
 val dbHelper2 = ForecastDbHelper(mockedContext) // 比如，提供给测试tests
 ```
 
-我会到处使用这个特性，所以我在解释清楚之后再继续往下。我们已经有了表，所以是时候开始对它们增加和请求了。但是在这之前，我想先讲讲结合和函数操作符。别忘了查看代码库找到最新的代码。
+I will use this feature everywhere, so I will continue to explain after explaining it clearly. We already have tables, so it's time to start adding and asking for them. But before that, I would like to talk about the combination and function operators. Do not forget to check the codebase to find the latest code.
 
-[Android中使用Dagger注入]: http://http://antonioleiva.com/dependency-injection-android-dagger-part-1/
+[using Dagger in Android]: http://http://antonioleiva.com/dependency-injection-android-dagger-part-1/
 [Dagger]: http://square.github.io/dagger/
