@@ -1,8 +1,8 @@
-# 配置Gradle
+# Configure Gradle
 
-Kotlin插件包括一个让我们配置Gradle的工具。但是我还是倾向于保持我对Gradle文件读写的控制权，否则它只会变得混乱而不会变得简单。不管怎么样，在使用自动工具之前知道它是怎么工作的是个不错的主意。所以这次，我们将手动去做。
+The Kotlin plugin includes a tool that lets us configure Gradle. But I still tend to keep my control of Gradle files read, otherwise it will only become chaotic and will not become simple. Anyway, it's a good idea to know how it works before using the automatic tool. So this time, we will do it manually.
 
-首先，你需要如下修改父`build.gradle`：
+First, you need to modify the parent `build.gradle` as follows:
 ```groovy
 buildscript {
     ext.support_version = '23.1.1'
@@ -22,11 +22,11 @@ allprojects {
     }
 }
 ```
-正如你看到的，我们创建了一个变量来存储当前的Kotlin版本。你读到这里的时候去检测一下最新版本，因为可能会有更新的版本已经发布了。我们需要在几个不同的地方用到那个版本号，比如你需要加上新的Kotlin插件的`dependency`。你会在你指定的那些模块中的`build.gradle`中再次需要到Kotlin标准库。
+As you can see, we created a variable to store the current version of Kotlin. You read here to check the latest version, because there may be a newer version has been released. We need to use the version number in a few different places, such as you need to add the new Kotlin plugin `dependency`. You will need to go to the Kotlin standard library again in the `build.gradle` 'of the modules you specify.
 
-我们对于`support library`也是如此，`Anko`库也是同样的做法。用这个方式可以更方便地在一个地方修改所有的版本号。并且使用相同的版本号，更新的时候也不需要每个地方都修改。
+We also true for `support library` , `Anko` library is the same approach. In this way it is easier to modify all the version numbers in one place. And use the same version number, the update does not need to be modified every place.
 
-我们会增加`Kotlin`标准库，`Anko`库，以及`Kotlin`和`Kotlin Android Extensions plugin`插件到dependencies。
+We will add the `Kotlin` standard library, the `Anko` library, and the `Kotlin` and `Kotlin Android Extensions plugin` plugins to the dependencies.
 ```groovy
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
@@ -50,5 +50,5 @@ buildscript {
     } 
 }
 ```
-Anko是一个用来简化一些Android任务的很强大的Kotlin库。我们之后将会学习部分anko，但是现在来说仅仅增加`anko-common`就足够了。这个库被分割成了一系列小的部分以至于我们不会把没用到的部分加进来。
+Anko is a very powerful Kotlin library used to simplify some Android tasks. We will learn part of anko later, but now it is enough to just increase `anko-common`. The library is divided into a series of small parts so that we will not put useless parts.
 
