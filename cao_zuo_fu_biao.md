@@ -13,6 +13,7 @@ __unary operator__
  a++ | a.inc() 
  a-- | a.dec() 
 <br/>
+
 __binary operator__
 
  Operators | Functions 
@@ -30,7 +31,7 @@ __binary operator__
  a *= b | a.timesAssign(b) 
  a /= b | a.divAssign(b) 
  a %= b | a.modAssign(b) 
-<br/>
+
 __array operator__
 
 | Operators | Functions |
