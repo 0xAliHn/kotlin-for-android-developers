@@ -55,4 +55,4 @@ We've seen a lot of new stuff in the very short code above, so I'll talk about t
 
 
 
-[I talked about 'RecyclerView` before my blog]: http://antonioleiva.com/recyclerview/
+[I talked about `RecyclerView` before my blog]: http://antonioleiva.com/recyclerview/
