@@ -1,6 +1,6 @@
-# 泛型preference委托
+# Generic preference
 
-现在我们已经是泛型专家了，为什么不扩展`LongPreference`为支持所有`Shared Preferences`支持的类型呢？我们来创建一个`Preference`委托：
+Now that we are already a generic expert, why not extend `LongPreference` to support all` Shared Preferences` support types? We come to create a `Preference` delegate:
 
 ```kotlin
 class Preference<T>(val context: Context, val name: String, val default: T)
@@ -21,7 +21,7 @@ class Preference<T>(val context: Context, val name: String, val default: T)
 }
 ```
 
-这个preference与我们之前使用的非常相似。我们仅仅替换了`Long`为泛型类型`T`，然后调用了两个函数来做具体重要的工作。这些函数非常简单，尽管有些重复。它们会检查类型然后使用指定的方式来操作。比如，`findPrefernce`函数如下：
+This preference is very similar to what we used before. We only replaced the `long` for the generic type` T`, and then called the two functions to do the specific important work. These functions are very simple, although some repetitions. They will check the type and then use the specified way to operate. For example, the `findPrefernce` function is as follows:
 
 ```kotlin
 private fun <T> findPreference(name: String, default: T): T = with(prefs) {
@@ -39,7 +39,7 @@ private fun <T> findPreference(name: String, default: T): T = with(prefs) {
 }
 ```
 
-`putPreference`函数也是一样，但是在`when`最后通过`apply`，使用`preferences editor`保存结果：
+` PutPreference` function is the same, but in `when` Finally through` apply`, use the `preferences editor` to save the results:
 
 ```kotlin
 private fun <U> putPreference(name: String, value: U) = with(prefs.edit()) {
@@ -55,7 +55,7 @@ erences")
 }
 ```
 
-现在修改`DelegateExt`：
+Now modify the `DelegateExt`:
 
 ```kotlin
 object DelegatesExt {
@@ -65,4 +65,4 @@ object DelegatesExt {
 }
 ```
 
-这章之后，用户可以访问设置界面并修改`zip code`。然后当我们返回主界面，forecast会自动重新刷新并显示新的信息。查看代码库中其余xi wei
+After this chapter, the user can access the setup interface and modify the `zip code`. Then when we return to the main interface, the forecast will automatically re-refresh and display the new information. View the remaining xi wei in the code base
