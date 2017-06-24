@@ -10,7 +10,7 @@ I hope you buy genuine, it is recommended to read the original English：https:/
 
 # future plans:
 * Compare every page of this electronic book to real one
-* Translate to Persian
+* Translate to Persian too
 
 
 __Contributes will be accepted__
