@@ -1,6 +1,6 @@
-# 创建一个设置activity
+# Create a setup activity
 
-当toolbar上溢出菜单（`overflow menu`）的`settings`选项被点击时，需要打开一个新的Activity。所以首先要做的事情时需要一个新的`SettingActivity`：
+When the `settings` menu option for the` overflow menu` is clicked, you need to open a new Activity. So the first thing to do when you need a new `SettingActivity`:
 
 ```kotlin
 class SettingsActivity : AppCompatActivity() {
@@ -19,7 +19,7 @@ class SettingsActivity : AppCompatActivity() {
 }
 ```
 
-当用户离开这个界面的时我们需要保存用户`preference`（偏好），所以我们需要像处理`Back`一样处理`Up`动作，重定向动作到`onBackPressed`。现在，让我们要创建一个XML布局。对于这个`preference`来说一个简单`EditText`就足够了：
+When the user leaves the interface, we need to save the user 'preferences', so we need to handle the `Up` action like` Back` to redirect the action to `onBackPressed`. Now let's create an XML layout. For this `preference` a simple` EditText 'is enough:
 
 ```xml
 <FrameLayout
@@ -51,7 +51,7 @@ class SettingsActivity : AppCompatActivity() {
 </FrameLayout>
 ```
 
-然后只需要在`AndroidManifest.xml`中声明这个activity：
+And then only need to declare this activity in `AndroidManifest.xml` '
 
 ```xml
 <activity
