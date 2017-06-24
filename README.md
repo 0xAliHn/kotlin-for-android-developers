@@ -8,5 +8,12 @@
 
 I hope you buy genuine, it is recommended to read the original English：https://leanpub.com/kotlin-for-android-developers
 
+# future plans:
+* Compare every page of this electronic book to real one
+* Translate to Persian
+
+
+__Contributes will be accepted__
+
 - Github: https://github.com/sinadarvi/kotlin-for-android-developers
 
