@@ -1,6 +1,6 @@
-# 内部类
+# Internal class
 
-在Java中，我们可以在类的里面再定义类。如果它是一个通常的类，它不能去访问外部类的成员（就如Java中的static）：
+In Java, we can redefine classes in the class. If it is a normal class, it can not access members of an external class (like static in Java):
 
 ```kotlin
 class Outer {
@@ -13,7 +13,7 @@ class Outer {
 val demo = Outer.Nested().foo() // == 2
 ```
 
-如果需要去访问外部类的成员，我们需要用`inner`声明这个类：
+If you need to access the members of the external class, we need to declare this class with `inner`:
 
 ```kotlin
 class Outer {
