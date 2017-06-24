@@ -1,8 +1,8 @@
 # Unit testing
 
-我不会对`unit testing`（单元测试）是什么的话题展开讨论。存在很多定义，但是都有一些细微的不同。一个普通的观点可能是`unit testing`验证一个单位（`unit`）的源代码的测试。一个单位（`unit`）包含什么就留给读者了。在我们的例子中，我仅仅去定义了一个`unit test`作为一个不需要设备运行的测试。IDE将会运行这些测试然后显示最后的结果分辩哪些测试成功哪些测试失败了。
+I will not discuss the topic of `unit testing` (unit test). There are many definitions, but there are some subtle differences. A common view may be `unit testing` to verify the test of a unit (` unit`) source code. A unit (`unit`) contains nothing left to the reader. In our example, I just defined a `unit test` as a test that does not require a device to run. The IDE will run these tests and then show the final result to resolve which tests were successful and which tests failed.
 
-`Unit testing`通常使用`JUnit`库。所以让我们增加这个依赖到`build.gradle`。因为这个依赖只会在跑测试的时候才会用到，所以我们可以使用`testCompile`而不是`compile`。用这种方式，这个库会在正式编译时忽略掉，可以减少APK的大小：
+`Unit testing` usually uses the` JUnit` library. So let's add this dependency to `build.gradle`. Because this dependency will only be used when running the test, so we can use `testCompile` instead of` compile`. In this way, the library will be ignored in the official compiler, you can reduce the size of APK:
 
 ```groovy
 dependencies {
@@ -11,11 +11,11 @@ dependencies {
 }
 ```
 
-现在同步gradle来获取该库并加入到你的项目中。为了开启`unit testing`，打开`Build Variants`tab（你可能可以在IDE的左边找到它），点击`Test Artifact`下拉，你应该选择`Unit Tests`。
+Now synchronize gradle to get the library and add it to your project. To open `unit testing`, open the` Build Variants`tab (you may find it on the left side of the IDE) and click `Test Artifact`. You should select` Unit Tests`.
 
-另一件你需要做的事情是创建一个新的文件夹。在src下面，你可能已经有`androidTest`和`main`了。创建另一个名为`test`的文件夹，再在它下面创建一个`java`文件夹。所以现在你应该有一个名为`src/test/java`绿色的文件夹。这是IDE发现我们在使用`Unit Test`模式好的迹象，这个文件夹中将会包括一些测试文件。
+Another thing you need to do is create a new folder. Under src, you probably already have `androidTest` and` main` 's. Create another folder called `test`, and then create a` java` folder below it. So now you should have a folder named `src / test / java` green. This is the IDE that we are using the `Unit Test` model good signs that this folder will include some test files.
 
-我们来写一个非常简单的测试来看看一切是不是正常运行了。使用合适的包名（我的是`com.antonioleiva.weatherapp`，但是你需要使用你app中的主包名）创建一个新的名为`SimpleTest`的Kotlin类。当你创建完，编写如下简单的测试：
+Let's write a very simple test to see if everything is running properly. Use the appropriate package name (my `com.antonioleiva.weatherapp`, but you need to use the main package name in your app) to create a new Kotlin class called` SimpleTest`. When you create it, write the following simple tests:
 
 ```kotlin
 import org.junit.Test
@@ -27,13 +27,13 @@ class SimpleTest {
 }
 ```
 
-使用`@Test`注解来辨别该函数为是一个测试。确认是`org.unit.Test`。然后增加一个简单的断言。它只是判断了true是否是true，它显然会成功。这个测试只是用开确认一切配置正确。
+Use the `@ Test` annotation to identify the function as a test. Confirm that it is `org.unit.Test`. Then add a simple assertion. It just judges whether true is true, it will obviously succeed. This test is only used to confirm that all configurations are correct.
 
-执行测试，只需要在你在`test`下创建的新的`java`文件夹上右击，然后选择`Run All Tests`。当编译完成后，它会运行测试并会看见结果简介的显示。你应该可以看见我们的测试通过了。
+Perform a test, just right-click on a folder in the new `java` file you created in the` test`, then select `Run All Tests`. When the compilation is complete, it runs the test and sees the display of the result profile. You should be able to see our test passed.
 
-现在是时候创建一个真正的测试了。所有使用Android框架来处理的测试可能都需要一个`instrumentation test`或者使用更复杂的像[Robolectric]库。所以在这些例子中我会不使用框架的任何东西。举个例子，我将测试从`Long`转`String`的扩展函数。
+Now it's time to create a real test. All tests that are handled using the Android framework may require a `instrumentation test` or a more complex library like [Robolectric]. So in these examples I will not use the framework of anything. For example, I will test the extension function from `Long` to` String`.
 
-创建一个新的名为`ExtensionTests`的文件，然后增加如下测试：
+Create a new file named `ExtensionTests` and add the following tests:
 
 ```kotlin
 class ExtensionsTest {
@@ -49,9 +49,9 @@ class ExtensionsTest {
 }
 ```
 
-这些测试检测`Long`实例是否可以转换成一个`String`。第一个测试默认行为（使用DateFormat.MEDIUM)），而第二个指定一个不同的格式。运行这些测试然后你会看到它们都通过了。我建议你修改它们然后看看它们失败是怎么样的。
+These tests detect whether the `Long` instance can be converted to a` String`. The first test default behavior (using DateFormat.MEDIUM)), and the second one specifies a different format. Run these tests and then you will see them all through it. I suggest you modify them and see how they fail.
 
-如果你在Java中使用过测试，你将会发现这并没有什么太多的不同。我会演示一个简单的例子，我们可以对`ForecastProvider`进行一些测试。我们可以使用`Mockito`库来模拟其它的类然后独立测试provider：
+If you have used a test in Java, you will find that this is not much different. I will demonstrate a simple example where we can make some tests on `ForecastProvider`. We can use the `Mockito` library to simulate other classes and then test the provider independently:
 
 ```groovy
 dependencies {
@@ -61,7 +61,7 @@ dependencies {
 }
 ```
 
-现在创建了一个`ForecastProviderTest`。我们要去测试`ForecastProvider`，使用`DataSource`来返回结果，看它结果是否为null。所以首先我们需要模拟一个`ForecastDataSource`：
+Now create a `ForecastProviderTest`. We're going to test `ForecastProvider` and use` DataSource` to return the result to see if it is null. So first we need to simulate a `ForecastDataSource`:
 
 ```kotlin
 val ds = mock(ForecastDataSource::class.java)
@@ -70,14 +70,14 @@ val ds = mock(ForecastDataSource::class.java)
 }
 ```
 
-如你所见，我们需要在`when`上加反引号。因为`when`在Kotlin中是一个保留关键字，所以如果我们在一些Java代码中使用到它我们需要避免它。现在我们用这个数据源创建了一个provider，然后检测调用那个方法之后的结果是否为null：
+As you can see, we need to put a counter-quotation on `when`. Because `when` is a reserved keyword in Kotlin, so if we use it in some Java code we need to avoid it. Now we use this data source to create a provider, and then detect whether the result of calling the method is null:
 
 ```kotlin
 val provider = ForecastProvider(listOf(ds))
 assertNotNull(provider.requestForecast(0))
 ```
 
-这是完整的测试函数：
+This is the complete test function:
 
 ```kotlin
 @Test fun testDataSourceReturnsValue() {
@@ -91,7 +91,7 @@ assertNotNull(provider.requestForecast(0))
 }
 ```
 
-如果你运行它，你将会看见它会出错。多亏这个测试，我们在自己的代码中发现了某些错误。测试失败是因为`ForecastProvider`在使用之前正在它的`companion object`中初始化。我们可以通过构造函数的方式在`ForecastProvider`中增加一些数据源，这个静态的List就永远不会被使用，所以它应该是使用`lazy`加载：
+If you run it, you will see that it will go wrong. Thanks to this test, we found some errors in our code. The test failed because the `ForecastProvider` was initialized in its` companion object` before it was used. We can add some data source to `ForecastProvider` by constructor, and this static List will never be used, so it should be loaded with` lazy`:
 
 ```kotlin
 companion object {
@@ -100,8 +100,8 @@ companion object {
 }
 ```
 
-如果你现在再次去运行，你会发现现在会通过所有的测试。
-我们也可以测试一些比如当数据源返回null的时候，它会便利下一个数据源来得到结果：
+If you are going to run again now, you will find that all tests will now pass.
+We can also test some, for example, when the data source returns null, it will facilitate the next data source to get the results:
 
 ```kotlin
 @Test fun emptyDatabaseReturnsServerValue() {
@@ -116,6 +116,6 @@ companion object {
 }
 ```
 
-如你所见，通过使用参数的默认值这种简单的依赖倒置足够让我们实现一些简单的`unit tests`。对于这个provider还有很多我们可以测试的东西，但是这个例子足够让我们学会使用`unit testing`工具了。
+As you can see, by using the default value of the parameter, this simple dependency is enough to allow us to implement some simple `unit tests`. There are a lot of things we can test for this provider, but this example is enough for us to learn to use the `unit testing` tool.
 
 [Robolectric]: http://robolectric.org/
