@@ -1,10 +1,13 @@
 # What do we get through Kotlin?
 
-Not in-depth Kotlin language (we will learn in the next chapter), there are some interesting features in Java:
+Without diving too deep in Kotlin language (we’ll learn everything about it throughout this book),
+these are some interesting features we miss in Java:
 
-## easy to show
+## Expresiveness
 
-With Kotlin, it is easier to avoid the template code because most of the typical cases are implemented in the default override in the language. For example, in Java, if we want a typical data class, we need to write (at least generate) the code:
+With Kotlin, it’s much easier to avoid boilerplate because most common situations are covered by
+default in the language. For instance, in Java, if we want to create a data class, we’ll need to write
+(or at least generate) this code:
 ```java
 public class Artist {
     private long id;
@@ -56,7 +59,8 @@ public class Artist {
 }
 ```
 
-Using Kotlin, we only need to pass the data class:
+With Kotlin, you just need to make use of a data class:
+
 ```kotlin
 data class Artist(
     var id: Long,
@@ -65,13 +69,17 @@ data class Artist(
     var mbid: String)
 ```
 
-This data class, it will automatically generate all the attributes and their accessors, as well as some useful methods, such as `toString ()`
+This data class auto-generates all the fields and property accessors, as well as some useful methods
+such as `toString ()`
 
-## SAFE null
+## Null Safety
 
-When we use Java development, our code is mostly defensive. If we do not want to encounter `NullPointerException`, we need to keep using it to determine if it is null. Kotlin, as many modern languages, null safe, because we need to call the operator via a secure (written as `?`) To explicitly specify whether an object can be null
+When we develop using Java, a big part of our code is defensive. We need to check continuously
+whether something is null before using it if we don’t want to find unexpected NullPointerException.
+Kotlin, as many other modern languages, is null safe because we need to explicitly specify if an
+object can be null by using the safe call operator (written `?`).
 
-We can write like this:
+We can do things like this:
 ```Kotlin
 // can not be compiled here. Artist can not be null
 Var notNullArtist: Artist = null
@@ -97,9 +105,11 @@ Artist!!.Print ()
 Val name = artist?.name?: "null"
 ```
 
-## extended method
+## Extension functions
 
-We can add functions to any class. It is more readable than the typical tool classes in our project. For example, we can add a copy of the show toast function:
+We can add new functions to any class. It’s a much more readable substitute to the usual utility
+classes we all have in our projects. We could, for instance, add a new method to fragments to show
+a toast:
 ```Kotlin
 Fun Fragment.toast (message: CharSequence, duration: Int = Toast.LENGTH_SHORT) {
     Toast.makeText (getActivity (), message, duration) .show ()
@@ -110,10 +120,14 @@ We can do it now:
 Fragment.toast ("Hello world!")
 ```
 
-## Function support (Lambdas)
+## Functional support (Lambdas)
 
-Every time we declare a click on the triggered event, you can just define what we need to do, rather than having to implement an inner class? We really can do that, this (or other more of the events we are interested in) we need to thank lambda:
+What if, instead of having to implement an anonymous class every time we need to implement
+a click listener, we could just define what we want to do? We can indeed. This (and many more
+interesting things) is what we get thanks to lambdas:
 ```Kotlin
 View.setOnClickListener{toast ("Hello world!")}
 ```
-Here's just picking up a small part of Kotlin that can simplify our code. Now that you already know some of the interesting features of this language, you can consider whether it is right for you. If you choose to continue, we will start our practice trip in the next chapter.
+This is only a small selection of what Kotlin can do to simplify your code. Now that you know some
+of the many interesting features of the language, you may decide this is not for you. If you continue,
+we’ll start with the practice right away in the next chapter.
