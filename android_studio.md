@@ -1,16 +1,30 @@
 # Android Studio
+First thing you need is to have Android Studio installed. As you may know, Android Studio is the
+official Android IDE, which was publicly presented in 2013 as a preview and finally released in 2014.
 
-The first thing is to install Android Studio. As you know, Android Studio is the official Android IDE, it is a preview release released in 2013, and in 2014 released the official version.
 
-Android Studio is a plug-in implementation of [Intellij IDEA], which is developed by [JetBrains], which Kotlin creates for JetBrains. So, as you can see, everything is so tightly combined.
+Android Studio is implemented as a plugin over [Intellij IDEA], a Java IDE created by  [JetBrains], the
+company which is also behind Kotlin. So, as you can see, everything is tightly connected.
 
-Moving Android Studio is an important change for Android developers. First, because we gave up Eclipse and went to the perfect language for software developers designed for Java developers. We can enjoy the perfect characteristics of the experience, such as rapid response and impact of intelligent code prompts, there are powerful analysis and reconstruction tools.
+The adoption of Android Studio was an important change for Android developers. First, because
+we left behind the buggy Eclipse and moved to a software specifically designed for Java developers,
+which gives us a perfect interaction with the language. We enjoy awesome features such as a fast and
+impressively smart code completion, or really powerful analysing and refactor tools among others.
 
-Second, [Gradle] became the official Android system builder, which means new possibilities for version building and deployment. The most interesting two points are system build and flavors, which allow you to use the same code base to create an infinite version (or even a different application).
 
-If you are still using Eclipse, in order to keep up with this book, I am afraid you need to transfer to Android Studio. Kotlin team also created a plug-in for Eclipse, but it is far behind Android Studio, and the combination was not perfect. Once you've used it, you'll feel like it's going to meet you later.
+And second, [Gradle] became the official build system for Android, which meant a whole bunch of
+new possibilities related to version building and deploy. Two of the most interesting functions are
+build systems and f lavours, which let you create infinite versions of the app (or even different apps)
+in an easy way while using the same code base.
 
-I will not cover the use of Android Studio and Gradle, because these are not the focus of this book, but if you have not used these tools before, do not panic, I am sure you can follow the book at the same time to learn the relevant foundation.
+If you are still using Eclipse, I’m afraid you need to switch to Android Studio if you want to follow
+this book. The Kotlin team is creating a plugin for Eclipse, but it will be always far behind the one
+for Android Studio, and the integration won’t be so perfect. You will also discover what you are
+missing really soon as you start using it.
+
+I’m not covering the use of Android Studio or Gradle because this is not the focus of the book, but
+if you haven’t used these tools before, don’t panic. I’m sure you’ll be able to follow the book and
+learn the basics in the meanwhile.
 
 If you have not AndroidStudio, [click here from the official website to download](https://developer.android.com/sdk/index.html)。
 
