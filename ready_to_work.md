@@ -1,3 +1,5 @@
 # Ready to work
 
-Now that you know a small example of using Kotlin, I'm sure you will want to use it as much as possible in your practice. Do not worry, in the first chapter will help you to build your development environment, so you can immediately write code.
+Now that you know some little examples of what you may do with Kotlin, I’m sure you want to start
+to put it into practice as soon as possible. Don’t worry, these first chapters will help you configure
+your development environment so that you can start writing some code immediately.
