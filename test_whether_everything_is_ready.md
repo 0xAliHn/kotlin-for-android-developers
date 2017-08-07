@@ -1,8 +1,10 @@
 # Test whether everything is ready
 
-We would like to write some code to test whether the Kotlin Android Extensions is working. I will not explain the code now, but I want to make sure they are working properly in your environment. This may be the hardest part of the configuration.
+We’re going to add some code to test Kotlin Android Extensions are working. I’m not explaining
+much about it yet, but I want to be sure this is working for you. It’s probably the trickiest part in
+this configuration.
 
-First, open `activity_main.xml` and set the id of the TextView:
+First, go to `activity_main.xml` and set an id for the TextView:
 ```xml
 <TextView
     android:id="@+id/message"
@@ -11,7 +13,8 @@ First, open `activity_main.xml` and set the id of the TextView:
     android:layout_height="wrap_content"/>
 ```
 
-Then, manually add an import statement to the Activity (do not worry about what you do not understand).
+Now, add the synthetic import to the activity (don’t worry if you don’t understand much about it
+yet):
 
 ```kotlin
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,11 +30,18 @@ override fun onCreate(savedInstanceState: Bundle?) {
 }
 ```
 
-Thanks to the interoperability between Kotlin and Java, we can manipulate the getter / setter methods in the Java library in Kotlin like operating attributes. We will go to explain the properties later, but I would like to remind that we can use `message.text` instead of` message.setText`. The compiler will convert it to the general Java code, so the use is not any performance overhead.
+Thanks to Kotlin interoperability with Java, we can use setters and getters methods from Java
+libraries as a property in Kotlin. We’ll talk about properties later, but just notice that we can use `message.text` instead of `message.setText` for free. The compiler will use the real Java methods, so
+there’s no performance overhead when using it.
 
-Now run the app, and it is running normally. Check whether the TextView is showing new content. If you have questions or want to see the code, please check out the [Kotlin for Android Developers repository]. Each section as long as the modified code, I will be submitted, so be sure to check all the code changes.
+Now run the app and see everything it’s working fine. Check that the message TextView is showing
+the new content. If you have any doubts or want to review some code, take a look at
+[Kotlin for Android Developers repository]. Each section as long as the modified code, I will be submitted, so be sure to check all the code changes.I’ll be adding a new commit for every chapter, when the chapter
+implies changes in code, so be sure to review it to check all the changes.
 
-The next chapter will cover the new things you see in the MainActivity after the conversion. Once you understand the subtle changes between Java and Kotlin, you will be able to write new code more easily.
+Next chapters will cover some of the new things you are seeing in the converted MainActivity.
+Once you understand the slight differences between Java and Kotlin, you’ll be able to create new
+code by yourself much easier.
 
 
 [Kotlin for Android Developers repository]: https://github.com/antoniolg/Kotlin-for-Android-Developers
