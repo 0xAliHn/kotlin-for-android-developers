@@ -1,6 +1,7 @@
 # Create a layout
 
-Show the list of weather forecasts We use `RecyclerView`, so you need to add a new dependency to `build.gradle`:
+The main view that will render the forecast list will be a `RecyclerView`, so a new dependency is
+required. Modify the  `build.gradle` file:
 
 ```groovy
 dependencies {
@@ -10,7 +11,7 @@ dependencies {
 }
 ```
 
-Then, `activity_main.xml` reads:
+Now, in  `activity_main.xml`:
 
 ```xml
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -23,14 +24,19 @@ Then, `activity_main.xml` reads:
 </FrameLayout>
 ```
 
-In `Mainactivity.kt` to remove all the code used to test before it can run properly (should now be prompted to error). For the time being we use the old `findViewByid()` way:
+In `Mainactivity.kt` remove the line we added to test everything worked (it will be showing an
+error now). We’ll continue using the good old  `findViewByid()` for the time being:
 
 ```kotlin
 val forecastList = findViewById(R.id.forecast_list) as RecyclerView
 forecastList.layoutManager = LinearLayoutManager(this)
 ```
 
-As you can see, we define a class variable and transform it into `RecyclerView`. This is a bit different from Java, and we'll analyze the differences in the next chapter. `LayoutManager` will be set by the property, rather than through the setter, this layout is enough to display a list.
+As you can see, we define the variable and cast it to `RecyclerView`. It’s a bit different from Java, and
+we’ll see those differences in the next chapter. A  `LayoutManager` is also specified, using the property
+naming instead of the setter. A list will be enough for this layout, so a `LinearLayoutManager` will
+make it.
 
 >Object instantiation
->>Object instantiation is also somewhat different from Java. As you can see, we removed the `new` keyword. At this point the constructor will still be called, but we omit the valuable four characters. `LinearLayoutManager(this)` Creates an instance of an object.
+>>Object instantiation presents some differences from Java too. As you can see, we omit
+the  `new` word. The constructor call is still there, but we save four precious characters. `LinearLayoutManager(this)` creates an instance of the object.
