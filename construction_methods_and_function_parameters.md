@@ -1,6 +1,7 @@
 # Construction methods and function parameters
 
-The parameters in Kotlin are somewhat different from those in Java. As you can see, we write the name of the parameter and write it to the type:
+Parameters in Kotlin are a bit different from Java. As you can see, we first write the name of the
+parameter and then its type.
 
 ```kotlin
 fun add(x: Int, y: Int) : Int {
@@ -8,7 +9,9 @@ fun add(x: Int, y: Int) : Int {
 }
 ```
 
-We can give the parameters to specify a default value so that they become optional, which is very helpful. Here is an example of creating a function in the Activity to toast a piece of information:
+An extremely useful thing about parameters is that we can make them optional by specifying a
+**default value**. Here it is an example of a function you could create in an activity, which uses a toast
+to show a message:
 
 ```kotlin
 fun toast(message: String, length: Int = Toast.LENGTH_SHORT) {
@@ -16,14 +19,15 @@ fun toast(message: String, length: Int = Toast.LENGTH_SHORT) {
 }
 ```
 
-As you can see, the second argument `length` specifies a default value. This means that when you call the second value can be passed or not pass, so you can avoid the need to overload the function:
+As you can see, the second parameter `length` specifies a default value. This means you can write
+the second value or not, which avoids the need of function overloading:
 
 ```kotlin
 toast("Hello")
 toast("Hello", Toast.LENGTH_LONG)
 ```
 
-This is the same as the following Java code:
+This would be equivalent to the next code in Java:
 
 ```java
 void toast(String message){
@@ -34,7 +38,7 @@ void toast(String message, int length){
 }
 ```
 
-It's as complicated as you think. Look at this example:
+And this can be as complex as you want. Check this other example:
 
 ```kotlin
 fun niceToast(message: String,
@@ -44,7 +48,8 @@ fun niceToast(message: String,
 }
 ```
 
-I added the third default value to the tag name of the class name. If the total overhead in Java will grow geometrically. It can now be called by:
+I’ve added a third parameter that includes a tag which defaults to the class name. The amount of
+overloads we’d need in Java grows exponentially. You can now write these calls:
 
 ```kotlin
 toast("Hello")
@@ -52,16 +57,20 @@ toast("Hello", "MyTag")
 toast("Hello", "MyTag", Toast.LENGTH_SHORT)
 ```
 
-And even other options, because you can use the parameter name to call, which means that you can pass the value of the parameters before the name of the parameters you want to pass:
+And there is even another option, because named arguments can be used, which means you can
+write the name of the argument preceding the value to specify which one you want:
 
 ```kotlin
 toast(message = "Hello", length = Toast.LENGTH_SHORT)
 ```
 
 >Tip: String template
->> You can use template expressions directly in String. It can help you to simply write complex strings on static values and variables. In the above example, I used "[$className] $message".
+>> You can use template expressions directly in your strings. This will make it easy to
+write complex strings based on static and variable parts. In the previous example, I used "[$className] $message".
 
->> As you can see, any time you use a `$` sign can insert an expression. If this expression is a bit complicated, you need to use a pair of braces to enclose: "Your name is ${user.name}".
+>> As you can see, anytime you want to add an expression, you need to use the `$` symbol. If
+the expression is a bit more complex, you’ll need to add a couple of brackets:`"Your name
+is ${user.name}"`
 
 
 
