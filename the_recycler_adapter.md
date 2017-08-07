@@ -1,8 +1,12 @@
 # The Recycler Adapter
 
-We also need a `RecyclerView` Adapter. [I talked about `RecyclerView` before my blog], and it might be helpful if you have not used it before.
+We need an adapter for the recycler too. I [talked about `RecyclerView` before my blog], some time ago,
+so it may help you if your are not used to it.
 
-`RecyclerView` used in the layout now only need a `TextView`, I will manually create this simple text list. Add a Kotlin file named `ForecastListAdapter.kt`, including the following code:
+The views used for `RecyclerView` adapter will be just  `TextView`, for now, and a simple list of texts
+that we’ll create manually. Add a new Kotlin file called `ForecastListAdapter.kt`, and include this
+code:
+
 ```kotlin
 class ForecastListAdapter(val items: List<String>) :
         RecyclerView.Adapter<ForecastListAdapter.ViewHolder>() {
@@ -20,9 +24,11 @@ class ForecastListAdapter(val items: List<String>) :
 }
 ```
 
-Again, we can access context and text like access properties. You can keep the previous operations (using getters and setters), but you will get a compiler warning. If you still prefer to use it in Java, this check can be turned off. But once you use the property call on the way you will fall in love with it, and it also saves the total amount of extra characters.
+Again, we can access to the context and the text as properties. You can keep doing it as usual (using
+getters and setter), but you’ll get a warning from the compiler. This check can be disabled if you
+prefer to keep using the Java way. Once you get used to properties you will love them anyway.
 
-Back to `MainActivity`, now simply create a series of String into the List, and then use the Create Assignment Adapter instance.
+Back to `MainActivity`, now just create the list of strings and then assign the adapter:
 
 ```kotlin
 private val items = listOf(
@@ -45,12 +51,16 @@ override fun onCreate(savedInstanceState: Bundle?) {
 ```
 
 >List created
->>Although I will explain the Collection later in this book, I will simply explain that you can create a constant List by using a function `listOf` (soon we will speak of `immutable`). It receives a type of `vararg` (variable length parameter), it will automatically infer the type of result.
->> There are many other functions that can be selected, such as `setOf`, `arrayListOf` or `hashSetOf`.
+>>Though I’ll talk about collections later on this book, I just want to explain for now that you
+can create constant lists (what we will see as immutable soon) by using the helper function `listOf` It receives a `vararg` of items of any type and infers the type of the result.
 
-In order to optimize the structure of the project, I also moved some classes into the new package inside.
+>> There are many other alternative functions, such as `setOf`, `arrayListOf` or `hashSetOf` among others.
 
-We've seen a lot of new stuff in the very short code above, so I'll talk about them in the next chapter. We must now learn some basic concepts such as basic types, variables, attributes and so on to continue.
+I also moved some classes to new packages, in order to improve organisation.
+
+We reviewed many new ideas in such a small amount of code, so I’ll be covering them in the next
+chapter. We can’t continue until we learn some important concepts regarding basic types, variables
+and properties.
 
 
 
