@@ -1,5 +1,8 @@
 # Convert `MainActivity` to Kotlin code
 
-Kotlin plugin contains an interesting feature that turns Java code into Kotlin code. As with any automation, the results will not be perfect, but it will provide a lot of help on the first day before you can start writing your code in Kotlin.
+An interesting feature the Kotlin plugin includes is the ability to convert from Java to Kotlin code.
+As any automated process, it won’t be perfect, but it will help a lot during your first days until you
+start getting used to Kotlin language.
 
-So we use it in the `MainActivity.java` class. Open the file and select `Code` -> `Convert Java File to Kotlin File`. The difference between them can make you more familiar with the language.
+So we are using it in our `MainActivity.java` class. Open the file and select `Code` -> `Convert Java File to Kotlin File`. Take a look at the differences, so that you start becoming familiar with the
+language.
