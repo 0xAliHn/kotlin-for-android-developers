@@ -1,13 +1,14 @@
 # Function
 
-Function (our Java method) can use the `fun` keyword to define:
+Functions (our methods in Java) are declared just using the `fun` keyword:
 
 ```kotlin
 fun onCreate(savedInstanceState: Bundle?) {
 }
 ```
 
-If you do not specify its return value, it will return `Unit`, similar to `void` in Java, but `Unit` is a real object. You can of course also specify any other return type:
+It you don’t specify a return value, it will return `Unit`, similar to `void` in Java, though this is really
+an object. You can, of course, specify any type as a return value:
 
 ```kotlin
 fun add(x: Int, y: Int) : Int {
@@ -16,9 +17,12 @@ fun add(x: Int, y: Int) : Int {
 ```
 
 >Tip: semicolon is not required
->>I think you saw in the above example, I did not use the semicolon at the end of each sentence. Of course you can also use semicolons, semicolons are not required, and do not use semicolons is a good practice. When you do that, you will find that it saves you a lot of time.
+>>As you can see in the example above, I’m not using semi-colons at the end of the sentences.
+While you can use them, semi-colons are not necessary and it’s a good practice not to use
+them. When you get used, you’ll find that it saves you a lot of time.
 
-However, if the returned result can be calculated using an expression, you can use the equal sign instead of using parentheses:
+However, if the result can be calculated using a single expression, you can get rid of brackets and
+use equal:
 
 ```kotlin
 fun add(x: Int,y: Int) : Int = x + y
