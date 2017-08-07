@@ -1,19 +1,21 @@
 # How to define a class
 
-If you want to define a class, you only need to use the `class` keyword.
+If you want to declare a class, you just need to use the keyword `class` :.
 ```kotlin
 class MainActivity{
 
 }
 ```
 
-It has a default unique constructor. We'll learn to create other extra constructors in special cases in a future lesson, but keep in mind that most of the time you only need this default constructor. You only need to write its parameters after the class name. If this class does not have any content you can omit curly braces:
+Classes have a unique default constructor. We’ll see that we can create extra constructors for some
+exceptional cases, but keep in mind that most situations only require a single constructor. Parameters
+are written just after the name. Brackets are not required if the class doesn’t have any content:
 
 ```kotlin
 class Person(name: String, surname: String)
 ```
 
-So where is the function of the constructor? You can write in the `init` block:
+Where’s the body of the constructor then? You can declare an  `init` block:
 ```kotlin
 class Person(name: String, surname: String) {
     init{
