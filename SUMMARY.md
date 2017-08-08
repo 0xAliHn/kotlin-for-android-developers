@@ -26,8 +26,8 @@
    * [The Recycler Adapter](the_recycler_adapter.md)
 * [Variables and attributes](variables_and_attributes.md)
    * [basic type](basic_type.md)
-   * [variable](bian_liang.md)
-   * [Attributes](attributes.md)
+   * [variable](variables.md)
+   * [Properties](properties.md)
 * Anko and extended functions
    * [What is Anko?](what_is_anko.md)
    * [Get started with Anko](get_started_with_anko.md)
