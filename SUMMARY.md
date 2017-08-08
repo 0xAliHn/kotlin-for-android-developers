@@ -33,8 +33,8 @@
    * [Get started with Anko](get_started_with_anko.md)
    * [Extension function](extension_function.md)
 * Get data from the API
-   * [Execute a request](execute_a_request.md)
-   * [Execute requests outside the main thread](execute_requests_outside_the_main_thread.md)
+   * [Performing a request](performing_a_request.md)
+   * [Performing the request out of the main thread](performing_the_request_out_of_the_main_thread.md)
 * [Data class](data_class.md)
    * [Extra function](extra_function.md)
    * [Copy a data class](copy_a_data_class.md)

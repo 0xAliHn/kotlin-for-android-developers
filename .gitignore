@@ -14,3 +14,7 @@ _book
 *.epub
 *.mobi
 *.pdf
+.idea/
+kotlin-for-android-developers.iml
+test/
+lib/
