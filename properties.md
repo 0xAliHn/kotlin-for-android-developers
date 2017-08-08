@@ -1,4 +1,4 @@
-# Attributes
+# Properties
 
 Attributes are the same as those in Java, but are more powerful. Attributes do things with fields plus getter plus setter. We compare their differences through an example. This is the code required for field security access and modification in Java:
 
