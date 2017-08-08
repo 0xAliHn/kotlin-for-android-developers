@@ -38,7 +38,7 @@
 * [Data classes](data_classes.md)
    * [Extra functions](extra_functions.md)
    * [Copying a data class](copying_a_data_class.md)
-   * [Map the object into a variable](map_the_object_into_a_variable.md)
+   * [Mapping an object into a variable](mapping_an_object_into_a_variable.md)
 * Analytical data
    * [Convert json to data class](convert_json_to_data_class.md)
    * [Build the domain layer](build_the_domain_layer.md)
