@@ -64,4 +64,4 @@ and properties.
 
 
 
-[I talked about `RecyclerView` before my blog]: http://antonioleiva.com/recyclerview/
+[talked about `RecyclerView` before my blog]: http://antonioleiva.com/recyclerview/
