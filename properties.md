@@ -1,6 +1,8 @@
 # Properties
 
-Attributes are the same as those in Java, but are more powerful. Attributes do things with fields plus getter plus setter. We compare their differences through an example. This is the code required for field security access and modification in Java:
+Properties are the equivalent to fields in Java, but much more powerful. Properties will do the work
+of a field plus a getter plus a setter. Let’s see an example to compare the difference. This is the code
+required in Java to safely access and modify a field:
 
 ```java
 public class Person {
@@ -18,7 +20,7 @@ person.setName("name");
 String name = person.getName();
 ```
 
-In Kotlin, only one attribute is needed:
+In Kotlin, only a property is required:
 
 ```kotlin
 public class Person {
@@ -32,7 +34,8 @@ person.name = "name"
 val name = person.name
 ```
 
-If there is no specification, the property will use getter and setter by default. Of course it can also be modified for your custom code and does not modify the existing code:
+If nothing is specified, the property uses the default getter and setter. It can, of course, be modified
+to run whatever custom code you need, without having to change the existing code:
 
 ```kotlin
 public classs Person {
@@ -44,6 +47,13 @@ public classs Person {
 }
 ```
 
-If you need to access the value of the property itself in the getter and setter, it needs to create a `backing field`. You can use the `field` this reserved field to access, it will be found by the compiler is being used and automatically created. It is important to note that if we call the attribute directly, we will use setter and getter instead of directly accessing the property. `Backing field` can only be accessed within the property accessor.
+If the property needs access to its own value in custom getter and setter (as in this case), it requires
+the creation of a `backing field`. It can be accessed by using `field` a reserved word, and will be
+automatically created by the compiler when it finds that it’s being used. Take into account that
+if we used the property directly, we would be using the setter and getter, and not doing a direct
+assignment. The `backing field` can only be used inside property accessors.
 
-As mentioned in the previous section, when operating Java code, Kotlin will allow the use of the syntax of the property to access the getter/setter method defined in the Java file. The compiler will link directly to its original getter/setter method. So when we directly access the property when there will be no performance overhead.
+As mentioned in some previous chapters, when operating with Java code Kotlin will allow to use
+the property syntax where a getter and a setter are defined in Java. The compiler will just link to
+the original getters and setters, so there are no performance penalties when using these mapped
+properties.
