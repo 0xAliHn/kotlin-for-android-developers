@@ -1,4 +1,4 @@
-# Extended function
+# Extension functions
 
 The number of extension functions is to add a new behavior on a class, even if we do not have access to this class code. This is a method that extends on a class that lacks useful functions. In Java, there are usually a lot of tools with static methods. One of the advantages of the extended function in Kotlin is that we do not need to pass the entire object as a parameter when calling the method. The extension function behaves like this class, and we can use the `this` keyword and call all the public methods.
 
