@@ -1,22 +1,28 @@
 # basic type
 
-Of course, types like integer, float, or boolean still exist, but they all exist as objects. Basic types of names and how they work are very similar to Java, but there are some differences you might need to consider:
+Of course, basic types such as integers, f loats, characters or booleans still exist, but they all act as
+an object. The name of the basic types and the way they work are very similar to Java, but there are
+some differences you might take into account:
 
-- The number type does not automatically transition. For example, you can not assign a variable to `Double` or `Int`. Must do a clear type conversion, you can use one of the many functions:
+- There are no automatic conversions among numeric types. For instance, you cannot assign
+an `Double` to a `Int`variable. An explicit conversion must be done, using one of the many
+functions available:
 
 ```kotlin
 val i:Int=7
 val d: Double = i.toDouble()
 ```
 
-- The character (Char) can not be treated directly as a number. We need to convert them into a number when needed:
+- Characters (Char) cannot directly be used as numbers. We can, however, convert them to a
+number when we need it:
 
 ```kotlin
 val c:Char='c'
 val i: Int = c.toInt()
 ```
 
-- Bit operations are also a bit different. In Android, we often use "or" in `flags`, so I use "and" and "or"  for example:
+- Bitwise arithmetical operations are a bit different. In Android, we use bitwise `or` quite often
+for f lags, so I’ll stick to `and` and `or` as an example:
 
 ```java
 // Java
@@ -30,9 +36,12 @@ val bitwiseOr = FLAG1 or FLAG2
 val bitwiseAnd = FLAG1 and FLAG2
 ```
 
->There are many other bitwise operators, such as `sh1`, `shs`, `ushr`, `xor` or `inv`. When we need time, you can [Kotlin official website] view.
+>There are many other bitwise operations, such as  `sh1`, `shs`, `ushr`, `xor` or `inv`.You can take
+a look at the [Kotlin official website] for more information.
 
-- Literally can specify the specific type. This is not necessary, but a generic Kotlin practice omit the type of the variable (we can see it right away), so we can let the compiler themselves deduce the specific type.
+- Literals can give information about its type. It’s not a requirement, but a common practice in
+Kotlin is to omit variable types (we’ll see it soon), so we can give some clues to the compiler
+to let it infer the type from the literal:
 
 ```kotlin
 val i = 12 // An Int
@@ -42,7 +51,7 @@ val d = 3.5 // A Double
 val f = 3.5F // A Float
 ```
 
-- 一A String can be accessed like an array and iterated:
+- A `String` can be accessed as an array and can be iterated:
 
 ```kotlin
 val s = "Example"
