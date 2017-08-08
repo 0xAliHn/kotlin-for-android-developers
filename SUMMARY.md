@@ -37,7 +37,7 @@
    * [Performing the request out of the main thread](performing_the_request_out_of_the_main_thread.md)
 * [Data classes](data_classes.md)
    * [Extra functions](extra_functions.md)
-   * [Copy a data class](copy_a_data_class.md)
+   * [Copying a data class](copying_a_data_class.md)
    * [Map the object into a variable](map_the_object_into_a_variable.md)
 * Analytical data
    * [Convert json to data class](convert_json_to_data_class.md)
