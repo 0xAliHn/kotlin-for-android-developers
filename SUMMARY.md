@@ -31,7 +31,7 @@
 * Anko and extended functions
    * [What is Anko?](what_is_anko.md)
    * [Get started with Anko](get_started_with_anko.md)
-   * [Extended function](extended_function.md)
+   * [Extension function](extension_function.md)
 * Get data from the API
    * [Execute a request](execute_a_request.md)
    * [Execute requests outside the main thread](execute_requests_outside_the_main_thread.md)
